@@ -20,6 +20,9 @@ public class GameStateManager : Singleton<GameStateManager>
     
     public event Action OnGameOver;
     // Start is called before the first frame update
+
+    [Header("Update Components")]
+    public PlayerController playerController;
     void Start()
     {
         if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex == 0) return;
@@ -42,7 +45,7 @@ public class GameStateManager : Singleton<GameStateManager>
 
     void GameUpdate()
     {
-        
+        playerController.PlayerUpdate();
     }
 
     public void PauseGame()
