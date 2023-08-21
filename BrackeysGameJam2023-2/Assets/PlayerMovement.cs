@@ -13,6 +13,9 @@ public class PlayerMovement : MonoBehaviour
     public float moveAccellerationDuration;
     private float moveAccelleration;
     Vector3 moveDirection;
+    public Vector2 xConstraints;
+    public Vector2 zConstraints;
+
 
     private void OnEnable()
     {
@@ -30,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
         if (!canMove) return;
         if (moveDirection == Vector3.zero)
         {
+            //Reset accelleration if player has stopped moving
             if (moveAccelleration > 0) moveAccelleration = 0;
             return;
         }
@@ -38,7 +42,17 @@ public class PlayerMovement : MonoBehaviour
         if(moveAccelleration < moveAccellerationDuration)
             moveAccelleration += Time.deltaTime;
 
-        Rigidbody.MovePosition(transform.position + Time.deltaTime * movementSpeed * moveDirection * movementCurve.Evaluate(moveAccelleration / moveAccellerationDuration));
+        //Calculate the next position
+        Vector3 nextPos = transform.position + Time.deltaTime * movementSpeed * moveDirection * movementCurve.Evaluate(moveAccelleration / moveAccellerationDuration);
+
+        //X Constraints
+        if (nextPos.x < xConstraints.x) nextPos.x = xConstraints.x;
+        if (nextPos.x > xConstraints.y) nextPos.x = xConstraints.y;
+        // Y Constraints
+        if (nextPos.z < zConstraints.x) nextPos.z = zConstraints.x;
+        if (nextPos.z > zConstraints.y) nextPos.z = zConstraints.y;
+
+        Rigidbody.MovePosition(nextPos);
     }
 
     public void Move(Vector2 movementDir)
