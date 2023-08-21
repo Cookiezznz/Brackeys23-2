@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnEnable()
     {
-        InputManager.OnMoveUpdated += Move;
+        InputManager.onMove += Move;
     }
 
     private void OnDisable()

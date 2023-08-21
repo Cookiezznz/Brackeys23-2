@@ -9,11 +9,15 @@ public class PlayerRage : MonoBehaviour
     public float currentRage;
     public Slider rageMeter;
     public GameObject rageText;
-    bool isEnraged;
+    public bool isEnraged;
 
     private void OnEnable()
     {
         Smashable.OnSmash += AddRage;
+    }
+    private void OnDisable()
+    {
+        Smashable.OnSmash -= AddRage;
     }
 
     public void AddRage(float rageToAdd)
