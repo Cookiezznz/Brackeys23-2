@@ -8,12 +8,12 @@ public class PlayerController : MonoBehaviour
     public PlayerMovement movement;
     public PlayerRage rage;
     public PlayerAttacks attacks;
-    
 
     public void PlayerUpdate()
     {
         movement.MovementUpdate();
         attacks.AttackUpdate();
     }
+
     
 }

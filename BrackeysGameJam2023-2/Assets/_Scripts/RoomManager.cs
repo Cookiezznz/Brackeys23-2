@@ -13,17 +13,25 @@ public class RoomManager : MonoBehaviour
     public float roomHeight;
     public int roomsToGenerate = 50;
     public int roofNumber = 30;
+    private float roofHeight;
+
+    public static event Action OnRoomsGenerated;
 
     private void Start()
     {
+        GenerateRooms();
+    }
+
+    private void GenerateRooms()
+    {
+        roofHeight = presetRooms[0].transform.position.y;
         //Add preset rooms to roomsList
         for (int roomNumber = 0; roomNumber < presetRooms.Count; roomNumber++)
         {
             Room presetRoom = presetRooms[roomNumber];
             roomsList.Add(presetRoom);
-            
-            presetRoom.SetRoomNumber(roofNumber - roomNumber);
 
+            presetRoom.SetRoomNumber(roofNumber - roomNumber);
         }
 
         //Generate up to roomsToGenerate number of rooms
@@ -31,16 +39,15 @@ public class RoomManager : MonoBehaviour
         {
             //Create new room
             Room newRoom = Instantiate(roomPrefab, buildingTransform).GetComponent<Room>();
-            
+
             //Calculate & Set the height of the room
-            float yHeight = roomHeight * roomsList.Count;
-            newRoom.transform.position = new Vector3(0, -yHeight, 0);
-            
+            float yHeight = roofHeight - roomHeight * roomsList.Count;
+            newRoom.transform.position = new Vector3(0, yHeight, 0);
+
             //Save reference
             roomsList.Add(newRoom);
-            
+
             newRoom.SetRoomNumber(roofNumber - roomNumber);
         }
-        
     }
 }
