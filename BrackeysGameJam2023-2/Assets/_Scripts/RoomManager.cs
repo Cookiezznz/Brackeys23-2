@@ -49,5 +49,7 @@ public class RoomManager : MonoBehaviour
 
             newRoom.SetRoomNumber(roofNumber - roomNumber);
         }
+
+        OnRoomsGenerated?.Invoke();
     }
 }
