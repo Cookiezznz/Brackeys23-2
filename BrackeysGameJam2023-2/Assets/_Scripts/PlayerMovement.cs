@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Properties")]
     public bool canMove = false;
     public float movementSpeed;
+    public Vector3 currentSpeed;
     public AnimationCurve movementCurve;
     public float moveAccellerationDuration;
     public float moveAccelleration;
@@ -44,17 +45,22 @@ public class PlayerMovement : MonoBehaviour
             moveAccelleration = Mathf.Min(moveAccelleration += Time.deltaTime, moveAccellerationDuration);
 
         //Calculate the next position
-        Vector3 nextPos = Time.deltaTime * movementSpeed * movementCurve.Evaluate(moveAccelleration / moveAccellerationDuration) * moveDirection;
-        nextPos += transform.position;
-
+        Vector3 translatePosition = movementSpeed * movementCurve.Evaluate(moveAccelleration / moveAccellerationDuration) * moveDirection;
+        currentSpeed = translatePosition;
+        
+        transform.Translate(translatePosition * Time.deltaTime);
+        
+        //Constrain Transform
+        Vector3 constrainedPosition = transform.position;
         //X Constraints
-        if (nextPos.x < xConstraints.x) nextPos.x = xConstraints.x;
-        if (nextPos.x > xConstraints.y) nextPos.x = xConstraints.y;
+        if (constrainedPosition.x < xConstraints.x) constrainedPosition.x = xConstraints.x;
+        if (constrainedPosition.x > xConstraints.y) constrainedPosition.x = xConstraints.y;
         // Y Constraints
-        if (nextPos.z < zConstraints.x) nextPos.z = zConstraints.x;
-        if (nextPos.z > zConstraints.y) nextPos.z = zConstraints.y;
+        if (constrainedPosition.z < zConstraints.x) constrainedPosition.z = zConstraints.x;
+        if (constrainedPosition.z > zConstraints.y) constrainedPosition.z = zConstraints.y;
 
-        Rigidbody.MovePosition(nextPos);
+        transform.position = constrainedPosition;
+
     }
 
     public void UpdateMoveDirection(Vector2 movementDir)

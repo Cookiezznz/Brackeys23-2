@@ -15,7 +15,7 @@ public class Smashable : MonoBehaviour
     }
 
     //TODO Replace collision with smashing of objects
-    public void OnTriggerEnter(Collider collision)
+    public void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
