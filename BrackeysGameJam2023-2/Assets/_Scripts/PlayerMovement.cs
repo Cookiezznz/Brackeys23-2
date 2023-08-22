@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public float movementSpeed;
     public AnimationCurve movementCurve;
     public float moveAccellerationDuration;
-    private float moveAccelleration;
+    public float moveAccelleration;
     Vector3 moveDirection;
     public Vector2 xConstraints;
     public Vector2 zConstraints;
@@ -19,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnEnable()
     {
-        InputManager.onMove += Move;
+        InputManager.onMove += UpdateMoveDirection;
     }
 
     private void OnDisable()
@@ -39,11 +40,12 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //Increment moveAccelleration if needed
-        if(moveAccelleration < moveAccellerationDuration)
-            moveAccelleration += Time.deltaTime;
+        if (moveAccelleration < moveAccellerationDuration)
+            moveAccelleration = Mathf.Min(moveAccelleration += Time.deltaTime, moveAccellerationDuration);
 
         //Calculate the next position
-        Vector3 nextPos = transform.position + Time.deltaTime * movementSpeed * moveDirection * movementCurve.Evaluate(moveAccelleration / moveAccellerationDuration);
+        Vector3 nextPos = Time.deltaTime * movementSpeed * movementCurve.Evaluate(moveAccelleration / moveAccellerationDuration) * moveDirection;
+        nextPos += transform.position;
 
         //X Constraints
         if (nextPos.x < xConstraints.x) nextPos.x = xConstraints.x;
@@ -55,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
         Rigidbody.MovePosition(nextPos);
     }
 
-    public void Move(Vector2 movementDir)
+    public void UpdateMoveDirection(Vector2 movementDir)
     {
         moveDirection = new Vector3(movementDir.x, 0, movementDir.y);
     }
