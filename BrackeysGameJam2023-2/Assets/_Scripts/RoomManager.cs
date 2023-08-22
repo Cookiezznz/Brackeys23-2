@@ -31,7 +31,7 @@ public class RoomManager : MonoBehaviour
             Room presetRoom = presetRooms[roomNumber];
             roomsList.Add(presetRoom);
 
-            presetRoom.SetRoomNumber(roofNumber - roomNumber);
+            presetRoom.PopulateRoom(roofNumber - roomNumber);
         }
 
         //Generate up to roomsToGenerate number of rooms
@@ -47,7 +47,7 @@ public class RoomManager : MonoBehaviour
             //Save reference
             roomsList.Add(newRoom);
 
-            newRoom.SetRoomNumber(roofNumber - roomNumber);
+            newRoom.PopulateRoom(roofNumber - roomNumber);
         }
 
         OnRoomsGenerated?.Invoke();
