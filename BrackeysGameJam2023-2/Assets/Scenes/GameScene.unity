@@ -2889,6 +2889,7 @@ GameObject:
   m_Component:
   - component: {fileID: 832575519}
   - component: {fileID: 832575518}
+  - component: {fileID: 832575520}
   m_Layer: 0
   m_Name: Global Volume
   m_TagString: Untagged
@@ -2928,6 +2929,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1912252821}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &832575520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 832575517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90d2539629b031d42abaa432a3a69380, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  standardProfile: {fileID: 11400000, guid: a6560a915ef98420e9faacc1c7438823, type: 2}
+  enragedProfile: {fileID: 11400000, guid: ccbe7d9917f601c4896352d81ecc6536, type: 2}
+  volume: {fileID: 832575518}
 --- !u!1 &838311071
 GameObject:
   m_ObjectHideFlags: 0

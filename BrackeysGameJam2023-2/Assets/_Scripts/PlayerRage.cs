@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,9 @@ public class PlayerRage : MonoBehaviour
     public Slider rageMeter;
     public GameObject rageText;
     public bool isEnraged;
+
+    public static event Action OnEnrageStart;
+    public static event Action OnEnrageEnd;
 
     private void OnEnable()
     {
@@ -38,6 +42,7 @@ public class PlayerRage : MonoBehaviour
     {
         isEnraged = true;
         rageText.gameObject.SetActive(true);
+        OnEnrageStart?.Invoke();
     }
 
     public void ClearRage()
@@ -46,5 +51,7 @@ public class PlayerRage : MonoBehaviour
         rageText.gameObject.SetActive(false);
         currentRage = 0;
         rageMeter.value = 0;
+        OnEnrageEnd?.Invoke();
+
     }
 }
