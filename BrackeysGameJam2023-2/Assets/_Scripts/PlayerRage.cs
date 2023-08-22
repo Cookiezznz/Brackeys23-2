@@ -39,4 +39,12 @@ public class PlayerRage : MonoBehaviour
         isEnraged = true;
         rageText.gameObject.SetActive(true);
     }
+
+    public void ClearRage()
+    {
+        isEnraged = false;
+        rageText.gameObject.SetActive(false);
+        currentRage = 0;
+        rageMeter.value = 0;
+    }
 }

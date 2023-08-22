@@ -15,6 +15,7 @@ public class PlayerAttacks : MonoBehaviour
     public bool attackFullyCharged;
 
     public GameObject attackIndicator;
+    public float holdDurationToShowIndicator;
     public Image attackIndicatorFill;
 
     public PlayerController playerController;
@@ -40,15 +41,20 @@ public class PlayerAttacks : MonoBehaviour
             {
                 //Increment hold duration
                 attackHoldDuration += Time.deltaTime;
+                if(attackHoldDuration > holdDurationToShowIndicator && !attackIndicator.activeSelf) attackIndicator.SetActive(true);
             }
             else //Is fully charged
             {
                 attackHoldDuration = maxAttackHoldDuration;
                 attackFullyCharged = true;
             }
-            //Update attack indicator
+
+            //0 - 1 Value of attack power
             float attackDurationNormalized = attackHoldDuration / maxAttackHoldDuration;
-            attackIndicatorFill.fillAmount = attackDurationNormalized;
+
+            //Update attack indicator
+            float attackIndicatorFillAmount = (attackHoldDuration - holdDurationToShowIndicator) / (maxAttackHoldDuration - holdDurationToShowIndicator);
+            attackIndicatorFill.fillAmount = attackIndicatorFillAmount;
         }
         
     }
@@ -62,8 +68,7 @@ public class PlayerAttacks : MonoBehaviour
         if (attackActive) return;
         attackActive = true;
         
-        //Show Attack Indicator
-        attackIndicator.SetActive(true);
+        //Reset Attack Indicator
         attackIndicatorFill.fillAmount = 0;
     }
     
@@ -107,6 +112,16 @@ public class PlayerAttacks : MonoBehaviour
     void Slam()
     {
         Debug.Log("SLAM!");
+        Debug.DrawRay(transform.position + Vector3.up * 0.2f, Vector3.down, Color.red, 5);
+        RaycastHit[] hits = Physics.RaycastAll(transform.position + Vector3.up * 0.2f, Vector3.down, 1f);
+        foreach(RaycastHit hit in hits)
+        {
+            if(hit.collider.gameObject.CompareTag("Floor"))
+            {
+                hit.collider.gameObject.SetActive(false);
+            }
+        }
+        playerController.rage.ClearRage();
     }
 
     //Standard Attack Implementation: Breaks Smashables
