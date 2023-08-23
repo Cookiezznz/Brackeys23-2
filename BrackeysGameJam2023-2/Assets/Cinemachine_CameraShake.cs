@@ -8,17 +8,15 @@ public class Cinemachine_CameraShake : MonoBehaviour
     public CinemachineVirtualCamera vCam;
 
     public float enrageShakeStart;
-    public float enrageShakeGain;
 
     public AnimationCurve shakeCurve;
     private CinemachineBasicMultiChannelPerlin noiseModule;
-
-    private bool isIncreasingShake;
 
     void OnEnable()
     {
         PlayerRage.OnEnrageStart += StartEnrageShake;
         PlayerRage.OnEnrageEnd += EndEnrageShake;
+        PlayerRage.OnRageGained += UpdateShake;
 
     }
 
@@ -26,6 +24,8 @@ public class Cinemachine_CameraShake : MonoBehaviour
     {
         PlayerRage.OnEnrageStart -= StartEnrageShake;
         PlayerRage.OnEnrageEnd -= EndEnrageShake;
+        PlayerRage.OnRageGained -= UpdateShake;
+
     }
 
     void Start()
@@ -34,14 +34,16 @@ public class Cinemachine_CameraShake : MonoBehaviour
     }
     void StartEnrageShake()
     {
-        noiseModule.m_FrequencyGain = enrageShakeStart;
-        isIncreasingShake = true;
+        noiseModule.m_AmplitudeGain = enrageShakeStart;
     }
 
     void EndEnrageShake()
     {
-        noiseModule.m_FrequencyGain = 0;
-        isIncreasingShake = false;
+        noiseModule.m_AmplitudeGain = 0;
+    }
 
+    void UpdateShake(float rageNormalized)
+    {
+        noiseModule.m_AmplitudeGain = shakeCurve.Evaluate(rageNormalized);
     }
 }

@@ -2894,8 +2894,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
   m_PivotOffset: {x: 0, y: 0, z: 0}
-  m_AmplitudeGain: 1
-  m_FrequencyGain: 0
+  m_AmplitudeGain: 0
+  m_FrequencyGain: 1
   mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &832575517
 GameObject:
@@ -6035,10 +6035,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vCam: {fileID: 1448960800}
   enrageShakeStart: 1
-  enrageShakeGain: 0
   shakeCurve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: -0
+      outSlope: -0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.24166666
+    - serializedVersion: 3
+      time: 0.5979836
+      value: -0.0018571354
+      inSlope: 0.02696508
+      outSlope: 0.02696508
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.20738974
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0.514151
+      inSlope: 1.7394347
+      outSlope: 1.7394347
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.1416549
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
