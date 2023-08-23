@@ -1289,7 +1289,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.19611613, y: 0.0000048988145, z: -0.000000979763, w: 0.9805807}
+  m_LocalRotation: {x: 0.19611613, y: 0.0000048754673, z: -0.0000009750935, w: 0.9805807}
   m_LocalPosition: {x: -0.0001193285, y: 155, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2790,6 +2790,7 @@ GameObject:
   - component: {fileID: 826084412}
   - component: {fileID: 826084410}
   - component: {fileID: 826084413}
+  - component: {fileID: 826084414}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -2879,6 +2880,23 @@ MonoBehaviour:
   m_BiasX: 0
   m_BiasY: 0
   m_CenterOnActivate: 1
+--- !u!114 &826084414
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826084408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+  m_PivotOffset: {x: 0, y: 0, z: 0}
+  m_AmplitudeGain: 1
+  m_FrequencyGain: 0
+  mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -5924,6 +5942,7 @@ GameObject:
   - component: {fileID: 1448960799}
   - component: {fileID: 1448960800}
   - component: {fileID: 1448960801}
+  - component: {fileID: 1448960802}
   m_Layer: 0
   m_Name: Virtual Camera
   m_TagString: Untagged
@@ -5939,7 +5958,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1448960798}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.19611613, y: 0.0000048988145, z: -0.000000979763, w: 0.9805807}
+  m_LocalRotation: {x: 0.19611613, y: 0.0000048754673, z: -0.0000009750935, w: 0.9805807}
   m_LocalPosition: {x: -0.0001193285, y: 155, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6002,6 +6021,27 @@ MonoBehaviour:
   worldOffset: {x: 0, y: 5, z: 0}
   camDolly: {fileID: 24398567}
   vCam: {fileID: 1448960800}
+--- !u!114 &1448960802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448960798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c29bf9050ad7de64f9575e18e29832e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vCam: {fileID: 1448960800}
+  enrageShakeStart: 1
+  enrageShakeGain: 0
+  shakeCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1456110123 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3047607776528653828, guid: a83473ae7877da748b43860ff7ef43c5,
