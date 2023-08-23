@@ -13,9 +13,8 @@ public class StatManager : Singleton<StatManager>
     [SerializeField] private float upgradePoints;
 
 
-    protected override void Awake()
+    private void Awake()
     {
-        base.Awake();
         points = 0;
         floors = 0;
         timeTaken = 0;
@@ -54,6 +53,6 @@ public class StatManager : Singleton<StatManager>
     /// </summary>
     public void updateTime()
     {
-        timeTaken = Time.time;
+
     }
 }

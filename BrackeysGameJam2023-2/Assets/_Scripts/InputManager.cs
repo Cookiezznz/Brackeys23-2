@@ -11,10 +11,9 @@ public class InputManager : Singleton<InputManager>
     [SerializeField] private Vector3 lookDelta;
     [SerializeField] private Vector3 moveDelta;
 
-    public static event Action onPrimaryDown;
-    public static event Action onPrimaryUp;
-    public static event Action<Vector2> onLook;
-    public static event Action<Vector2> onMove;
+    public static event Action OnPrimaryUpdated;
+    public static event Action<Vector2> OnLookUpdated;
+    public static event Action<Vector2> OnMoveUpdated;
 
     void Awake()
     {
@@ -32,27 +31,20 @@ public class InputManager : Singleton<InputManager>
     {
         Vector2 pos = context.ReadValue<Vector2>();
         moveDelta = pos;
-        onMove?.Invoke(moveDelta);
+        OnMoveUpdated?.Invoke(moveDelta);
     }
 
     public void OnLook(InputAction.CallbackContext context)
     {
         Vector2 pos = context.ReadValue<Vector2>();
         lookDelta = pos;
-        onLook?.Invoke(lookDelta);
+        OnLookUpdated?.Invoke(lookDelta);
 
     }
 
-    public void OnPrimaryDown(InputAction.CallbackContext context)
+    public void OnPrimary(InputAction.CallbackContext context)
     {
-        if (!context.performed) return;
-        onPrimaryDown?.Invoke();
-    }
-    
-    public void OnPrimaryUp(InputAction.CallbackContext context)
-    {
-        if (!context.performed) return;
-        onPrimaryUp?.Invoke();
+        OnPrimaryUpdated?.Invoke();
     }
 
     public void OnPointerPosition(InputAction.CallbackContext context)
