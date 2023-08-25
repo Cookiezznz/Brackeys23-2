@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 7467251442353968023}
   - component: {fileID: 6118481365456795418}
   - component: {fileID: 5783999202358064948}
+  - component: {fileID: 548837613221123448}
+  - component: {fileID: 1277685767283240299}
   m_Layer: 0
   m_Name: Hostile
   m_TagString: Untagged
@@ -84,6 +86,43 @@ CapsuleCollider:
   m_Height: 2.12
   m_Direction: 1
   m_Center: {x: 0, y: 1.06, z: 0}
+--- !u!195 &548837613221123448
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6021923818275836855}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &1277685767283240299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6021923818275836855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 045584433115611418f498eabe5de6ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectRadius: 4
+  attacking: 0
+  roomYPosition: 0
 --- !u!1 &7027867116946032645
 GameObject:
   m_ObjectHideFlags: 0
