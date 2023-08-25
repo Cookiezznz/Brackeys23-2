@@ -45,7 +45,8 @@ public class GameStateManager : Singleton<GameStateManager>
 
     void GameUpdate()
     {
-        playerController.PlayerUpdate();
+        if(playerController)
+            playerController.PlayerUpdate();
     }
 
     public void PauseGame()

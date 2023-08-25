@@ -14,6 +14,7 @@ public class PlayerRage : MonoBehaviour
 
     public static event Action OnEnrageStart;
     public static event Action OnEnrageEnd;
+    public static event Action<float> OnRageGained;
 
     private void OnEnable()
     {
@@ -29,13 +30,18 @@ public class PlayerRage : MonoBehaviour
         if (isEnraged) return;
 
         currentRage += rageToAdd;
+        
+        float rageNormalized = currentRage / rageMax;
+        OnRageGained?.Invoke(rageNormalized);
+        rageMeter.value = rageNormalized;
+        
         if(currentRage >= rageMax)
         {
             //Rage has just reached max
             currentRage = rageMax;
             Enrage();
         }
-        rageMeter.value = currentRage / rageMax;
+
     }
 
     void Enrage()
