@@ -11520,48 +11520,13 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2849904549416316264, guid: 792969756d0701a48a2917ae8fc7878b,
         type: 3}
-      propertyPath: music.Array.size
-      value: 1
+      propertyPath: musicVolume
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2849904549416316264, guid: 792969756d0701a48a2917ae8fc7878b,
         type: 3}
-      propertyPath: sounds.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2849904549416316264, guid: 792969756d0701a48a2917ae8fc7878b,
-        type: 3}
-      propertyPath: music.Array.data[1].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 8baa98057153db143b688b0ee0d02b3e, type: 3}
-    - target: {fileID: 2849904549416316264, guid: 792969756d0701a48a2917ae8fc7878b,
-        type: 3}
-      propertyPath: music.Array.data[1].name
-      value: GameMusic
-      objectReference: {fileID: 0}
-    - target: {fileID: 2849904549416316264, guid: 792969756d0701a48a2917ae8fc7878b,
-        type: 3}
-      propertyPath: sounds.Array.data[1].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 2d9edc79c6988cd4999dd27b97cfab90, type: 3}
-    - target: {fileID: 2849904549416316264, guid: 792969756d0701a48a2917ae8fc7878b,
-        type: 3}
-      propertyPath: sounds.Array.data[1].name
-      value: Surprise
-      objectReference: {fileID: 0}
-    - target: {fileID: 2849904549416316264, guid: 792969756d0701a48a2917ae8fc7878b,
-        type: 3}
-      propertyPath: dialogue.Array.data[0].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 9958d95881532de4480b8d3d9591529c, type: 3}
-    - target: {fileID: 2849904549416316264, guid: 792969756d0701a48a2917ae8fc7878b,
-        type: 3}
-      propertyPath: music.Array.data[1].volumePercent
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2849904549416316264, guid: 792969756d0701a48a2917ae8fc7878b,
-        type: 3}
-      propertyPath: sounds.Array.data[1].volumePercent
-      value: 1
+      propertyPath: startingMusic
+      value: GameMusic_NoRage
       objectReference: {fileID: 0}
     - target: {fileID: 3850225283944689370, guid: 792969756d0701a48a2917ae8fc7878b,
         type: 3}
@@ -15344,7 +15309,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.19611613, y: 0.0000048288107, z: -0.0000009657622, w: 0.9805807}
+  m_LocalRotation: {x: 0.19611613, y: 0.0000048754673, z: -0.0000009750935, w: 0.9805807}
   m_LocalPosition: {x: -0.0001193285, y: 155, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -70010,7 +69975,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1448960798}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.19611613, y: 0.0000048288107, z: -0.0000009657622, w: 0.9805807}
+  m_LocalRotation: {x: 0.19611613, y: 0.0000048754673, z: -0.0000009750935, w: 0.9805807}
   m_LocalPosition: {x: -0.0001193285, y: 155, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
