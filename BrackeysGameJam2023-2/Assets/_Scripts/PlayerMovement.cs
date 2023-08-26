@@ -39,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
     {
         //Movement viability checks
         if (!canMove) return;
+
         if (moveDirection == Vector3.zero)
         {
             //Reset accelleration if player has stopped moving
