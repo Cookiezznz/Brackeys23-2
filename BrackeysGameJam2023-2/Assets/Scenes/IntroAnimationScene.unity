@@ -942,7 +942,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.14381036, y: 0.000003506179, z: -0.0000005095212, w: 0.9896053}
+  m_LocalRotation: {x: 0.14381036, y: 0.000003461476, z: -0.0000005030249, w: 0.9896053}
   m_LocalPosition: {x: -0.0001193285, y: 155, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4137,7 +4137,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1448960798}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.14381036, y: 0.000003506179, z: -0.0000005095212, w: 0.9896053}
+  m_LocalRotation: {x: 0.14381036, y: 0.000003461476, z: -0.0000005030249, w: 0.9896053}
   m_LocalPosition: {x: -0.0001193285, y: 155, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5072,7 +5072,7 @@ MonoBehaviour:
   progressSliderGO: {fileID: 1450202323}
   progressSlider: {fileID: 99993189}
   fadeCover: {fileID: 1130603171}
-  fadeColour: {r: 0.6981132, g: 0.10208259, b: 0.10208259, a: 0}
+  fadeColour: {r: 0.60784316, g: 0.09411765, b: 0.14509805, a: 0}
 --- !u!1001 &1959076512
 PrefabInstance:
   m_ObjectHideFlags: 0
