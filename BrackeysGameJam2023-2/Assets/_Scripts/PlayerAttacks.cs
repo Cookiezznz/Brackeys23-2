@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -60,7 +61,8 @@ public class PlayerAttacks : MonoBehaviour
             {
                 attackHoldDuration = maxAttackHoldDuration;
                 attackFullyCharged = true;
-                playerMovement.canMove = false;
+
+                StartCoroutine(SmashAnimation(2f));
                 Debug.Log("stopMovement = true");
             }
 
@@ -106,7 +108,6 @@ public class PlayerAttacks : MonoBehaviour
             {
                 //TODO Implement Slam
                 Slam();
-                playerMovement.canMove = true;
             }
             else //Else Smash
             {
@@ -162,5 +163,13 @@ public class PlayerAttacks : MonoBehaviour
         {
             attackDirection = new Vector3(dir.x, 0, dir.y);
         }
+    }
+
+    private IEnumerator SmashAnimation(float duration)
+    {
+        playerMovement.canMove = false;
+        yield return new WaitForSeconds(duration);
+        playerMovement.canMove = true;
+        yield return null;
     }
 }
