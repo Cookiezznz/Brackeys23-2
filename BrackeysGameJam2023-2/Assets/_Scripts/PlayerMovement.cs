@@ -20,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 xConstraints;
     public Vector2 zConstraints;
 
+    public Vector3 rayDirection, start;
+
     private void OnEnable()
     {
         InputManager.onMove += UpdateMoveDirection;
@@ -35,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
     {
         //Movement viability checks
         if (!canMove) return;
+
         if (moveDirection == Vector3.zero)
         {
             //Reset accelleration if player has stopped moving

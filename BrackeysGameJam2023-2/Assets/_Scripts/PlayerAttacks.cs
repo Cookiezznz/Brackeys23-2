@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 using UnityEngine.UI;
@@ -21,6 +22,7 @@ public class PlayerAttacks : MonoBehaviour
     public Image attackIndicatorFill;
 
     public PlayerController playerController;
+    public PlayerMovement playerMovement;
 
     public Vector3 attackDirection;
     public float maxAttackDistance;
@@ -58,6 +60,8 @@ public class PlayerAttacks : MonoBehaviour
             {
                 attackHoldDuration = maxAttackHoldDuration;
                 attackFullyCharged = true;
+                playerMovement.canMove = false;
+                Debug.Log("stopMovement = true");
             }
 
             //0 - 1 Value of attack power
@@ -102,6 +106,7 @@ public class PlayerAttacks : MonoBehaviour
             {
                 //TODO Implement Slam
                 Slam();
+                playerMovement.canMove = true;
             }
             else //Else Smash
             {
@@ -110,7 +115,7 @@ public class PlayerAttacks : MonoBehaviour
         }
         else
         {
-            //TODO Implement Standard Attack
+            //Done Hopefully: Animations next
             Smash();
         }
         //Clear hold duration
