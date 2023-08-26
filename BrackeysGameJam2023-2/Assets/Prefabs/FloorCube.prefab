@@ -119,4 +119,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   despawnDuration: 1.5
-  breakForce: 20
+  breakForce: 200
