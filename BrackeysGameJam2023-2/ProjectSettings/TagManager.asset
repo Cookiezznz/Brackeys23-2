@@ -5,12 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Floor
-  - Smashable
+  - FloorCube
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Smashable
+  - 
   - Water
   - UI
   - 
