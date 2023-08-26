@@ -7,17 +7,18 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("Components")]
     public Rigidbody Rigidbody;
+
     [Header("Properties")]
     public bool canMove = false;
+
     public float movementSpeed;
     public Vector3 currentSpeed;
     public AnimationCurve movementCurve;
     public float moveAccellerationDuration;
     public float moveAccelleration;
-    Vector3 moveDirection;
+    public Vector3 moveDirection;
     public Vector2 xConstraints;
     public Vector2 zConstraints;
-
 
     private void OnEnable()
     {
@@ -26,8 +27,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnDisable()
     {
-        
     }
+
     // Update is called once per frame
     public void MovementUpdate()
     {
@@ -47,9 +48,9 @@ public class PlayerMovement : MonoBehaviour
         //Calculate the next position
         Vector3 translatePosition = movementSpeed * movementCurve.Evaluate(moveAccelleration / moveAccellerationDuration) * moveDirection;
         currentSpeed = translatePosition;
-        
+
         transform.Translate(translatePosition * Time.deltaTime);
-        
+
         //Constrain Transform
         Vector3 constrainedPosition = transform.position;
         //X Constraints
@@ -60,12 +61,10 @@ public class PlayerMovement : MonoBehaviour
         if (constrainedPosition.z > zConstraints.y) constrainedPosition.z = zConstraints.y;
 
         transform.position = constrainedPosition;
-
     }
 
     public void UpdateMoveDirection(Vector2 movementDir)
     {
         moveDirection = new Vector3(movementDir.x, 0, movementDir.y);
     }
-
 }
