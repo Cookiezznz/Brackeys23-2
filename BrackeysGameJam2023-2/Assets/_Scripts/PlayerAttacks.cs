@@ -22,23 +22,24 @@ public class PlayerAttacks : MonoBehaviour
 
     public PlayerController playerController;
 
-    public LayerMask smashableLayer;
-    public PlayerMovement direction;
-
-    public Vector3 tempDirection;
-
-    public Quaternion orientation = new Quaternion(1f, 1f, 1f, 1f);
+    public Vector3 attackDirection;
+    public float maxAttackDistance;
+    [Tooltip("No Hold = Min Curve, Max Hold = Max Curve")]
+    public AnimationCurve holdAttackDistanceCurve;
+    
 
     private void OnEnable()
     {
         InputManager.onPrimaryDown += StartAttack;
         InputManager.onPrimaryUp += EndAttack;
+        InputManager.onMove += UpdateAttackDirection;
     }
 
     private void OnDisable()
     {
         InputManager.onPrimaryDown -= StartAttack;
         InputManager.onPrimaryUp -= EndAttack;
+        InputManager.onMove -= UpdateAttackDirection;
     }
 
     public void AttackUpdate()
@@ -87,8 +88,6 @@ public class PlayerAttacks : MonoBehaviour
         if (!attackActive) return;
         attackActive = false;
 
-        //Clear hold duration
-        attackHoldDuration = 0;
         //Log the last attack time for cooldown tracking.
         lastAttackTime = Time.time;
 
@@ -114,13 +113,14 @@ public class PlayerAttacks : MonoBehaviour
             //TODO Implement Standard Attack
             Smash();
         }
+        //Clear hold duration
+        attackHoldDuration = 0;
     }
 
     //Attack for progressing levels
     private void Slam()
     {
-        Debug.Log("SLAM!");
-        Debug.DrawRay(transform.position + Vector3.up * 0.2f, Vector3.down, Color.red, 5);
+
         RaycastHit[] hits = Physics.SphereCastAll(transform.position, slamRadius, Vector3.down, 2);
         foreach(RaycastHit hit in hits)
         {
@@ -140,19 +140,16 @@ public class PlayerAttacks : MonoBehaviour
     //Standard Attack Implementation: Breaks Smashables
     private void Smash()
     {
-        // Need Validation
-        Debug.DrawRay(transform.position + Vector3.up * 0.2f, direction.moveDirection, Color.yellow);
-        RaycastHit[] hits = Physics.BoxCastAll(transform.position, Vector3.forward, direction.moveDirection, orientation);
+        float calculatedAttackDistance = maxAttackDistance * holdAttackDistanceCurve.Evaluate(attackHoldDuration / maxAttackHoldDuration); 
+        RaycastHit[] hits = Physics.BoxCastAll(transform.position, Vector3.one, attackDirection, Quaternion.identity, calculatedAttackDistance, LayerMask.GetMask("Smashable"));
         foreach (RaycastHit hit in hits)
         {
-            if (hit.collider.gameObject.CompareTag("Smashable"))
+            GameObject hitGO = hit.collider.gameObject;
+            if (hitGO.CompareTag("Smashable"))
             {
-                hit.collider.gameObject.SetActive(false);
-                Debug.Log("Smash!");
-                playerController.rage.AddRage(10f);
+                hitGO.GetComponent<Smashable>().Smash();
             }
         }
-        SaveDirection();
 
         /*
         RaycastHit hit;
@@ -169,16 +166,12 @@ public class PlayerAttacks : MonoBehaviour
         */
     }
 
-    private void SaveDirection()
+    private void UpdateAttackDirection(Vector2 dir)
     {
-        Vector3 zero = Vector3.zero;
-        if (direction.moveDirection != zero)
+        if (dir != Vector2.zero)
         {
-            tempDirection = direction.moveDirection;
+            attackDirection = new Vector3(dir.x, 0, dir.y);
         }
-        if (direction.moveDirection == zero)
-        {
-            tempDirection = direction.moveDirection;
-        }
+       
     }
 }

@@ -6,11 +6,12 @@ TagManager:
   tags:
   - Floor
   - FloorCube
+  - Smashable
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Smashable
   - Water
   - UI
   - 

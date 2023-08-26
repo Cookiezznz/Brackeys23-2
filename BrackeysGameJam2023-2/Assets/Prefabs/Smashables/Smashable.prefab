@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3819401880493844388}
   - component: {fileID: 6773286347847708116}
   - component: {fileID: 591102017069088379}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Smashable
   m_TagString: Smashable
   m_Icon: {fileID: 0}

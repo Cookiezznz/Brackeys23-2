@@ -27,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnDisable()
     {
+        InputManager.onMove -= UpdateMoveDirection;
     }
 
     // Update is called once per frame
