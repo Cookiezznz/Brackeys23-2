@@ -49,7 +49,11 @@ public class RoomManager : MonoBehaviour
 
             newRoom.PopulateRoom(roofNumber - roomNumber);
         }
+        Invoke("RoomsGenerated", 2);
+    }
 
+    void RoomsGenerated()
+    {
         OnRoomsGenerated?.Invoke();
     }
 }

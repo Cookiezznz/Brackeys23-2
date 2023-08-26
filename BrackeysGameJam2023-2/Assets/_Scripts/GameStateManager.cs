@@ -23,10 +23,15 @@ public class GameStateManager : Singleton<GameStateManager>
 
     [Header("Update Components")]
     public PlayerController playerController;
-    void Start()
+
+    void OnEnable()
     {
-        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex == 0) return;
-            StartGame();
+        RoomManager.OnRoomsGenerated += StartGame;
+    }
+
+    void OnDisable()
+    {
+        RoomManager.OnRoomsGenerated -= StartGame;
     }
 
     public void StartGame()

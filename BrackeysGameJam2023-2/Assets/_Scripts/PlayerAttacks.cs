@@ -13,6 +13,7 @@ public class PlayerAttacks : MonoBehaviour
     private float lastAttackTime;
     public bool attackActive;
     public bool attackFullyCharged;
+    public float slamRadius;
 
     public GameObject attackIndicator;
     public float holdDurationToShowIndicator;
@@ -113,12 +114,17 @@ public class PlayerAttacks : MonoBehaviour
     {
         Debug.Log("SLAM!");
         Debug.DrawRay(transform.position + Vector3.up * 0.2f, Vector3.down, Color.red, 5);
-        RaycastHit[] hits = Physics.RaycastAll(transform.position + Vector3.up * 0.2f, Vector3.down, 1f);
+        RaycastHit[] hits = Physics.SphereCastAll(transform.position, slamRadius, Vector3.down, 2);
         foreach(RaycastHit hit in hits)
         {
-            if(hit.collider.gameObject.CompareTag("Floor"))
+            if (hit.collider.gameObject.CompareTag("Floor"))
             {
-                hit.collider.gameObject.SetActive(false);
+                hit.collider.enabled = false;
+            }
+
+            if (hit.collider.gameObject.CompareTag("FloorCube"))
+            {
+                hit.collider.gameObject.GetComponent<FloorCube>().Break();
             }
         }
         playerController.rage.ClearRage();
