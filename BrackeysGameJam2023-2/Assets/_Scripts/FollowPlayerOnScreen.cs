@@ -27,7 +27,6 @@ public class FollowPlayerOnScreen : MonoBehaviour
         pos.x += pixelOffset.x;
         pos.y += pixelOffset.y;
         rect.anchoredPosition = pos / canvas.scaleFactor;
-        Debug.Log(pos);
         
     }
 }

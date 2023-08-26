@@ -6,11 +6,13 @@ using UnityEngine;
 public class Room : MonoBehaviour
 {
     public bool isPresetRoom;
+    public bool activateOnStart;
     public TextMeshPro roomNumber;
     public GameObject frontWallFacade;
     public float roomRevealFadeDuration;
     public AnimationCurve roomRevealFadeCurve;
     public bool isActive;
+    public EnableFloor floor;
 
     [Header("Smashables")]
     public Transform smashablesHolder;
@@ -27,6 +29,10 @@ public class Room : MonoBehaviour
     public float numberOfHostilesToSpawn;
     public List<GameObject> hostiles = new List<GameObject>();
 
+    void Start()
+    {
+        if(activateOnStart) ActivateRoom();
+    }
     public void PopulateRoom(int roomNum)
     {
         roomNumber.text = roomNum.ToString();
@@ -53,7 +59,7 @@ public class Room : MonoBehaviour
                 Smashable newSmashable = Instantiate(smashablePrefabs[randomSmashable], smashablesHolder).GetComponent<Smashable>();
                 smashables.Add(newSmashable);
 
-                int maxSpawnAttempts = 10;
+                int maxSpawnAttempts = 20;
                 // Set position with minimum distance check using grid
                 Vector3 pos = Vector3.zero;
 
@@ -95,7 +101,7 @@ public class Room : MonoBehaviour
 
                 if (!validPositionFound)
                 {
-                    Debug.LogWarning("Unable to find a valid position after " + maxSpawnAttempts + " attempts.");
+                    //Debug.LogWarning("Unable to find a valid position after " + maxSpawnAttempts + " attempts.");
                     break; // Exit the spawning loop
                 }
 
@@ -122,7 +128,8 @@ public class Room : MonoBehaviour
     {
         if(isActive)
         {
-            if(frontWallFacade.activeSelf) ActivateRoom(true);
+            if(frontWallFacade)
+                if(frontWallFacade.activeSelf) ActivateRoom(true);
         }
         
     }
@@ -130,11 +137,19 @@ public class Room : MonoBehaviour
     {
         if(!forceActivate)
             if (isActive) return;
-
+        floor.EnableFloorRenderers();
         isActive = true;
-        StartCoroutine(RevealRoom());
+        if(frontWallFacade)
+            StartCoroutine(RevealRoom());
     }
-    
+
+    public void DeactivateRoom()
+    {
+        if (!isActive) return;
+        isActive = false;
+        floor.DisableFloorRenderers();
+    }
+
 
     IEnumerator RevealRoom()
     {

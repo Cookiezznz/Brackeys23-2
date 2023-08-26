@@ -996,6 +996,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPresetRoom: 0
+  activateOnStart: 0
   roomNumber: {fileID: 2776889617351719996}
   frontWallFacade: {fileID: 178045461408280486}
   roomRevealFadeDuration: 0.5
@@ -1024,6 +1025,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   isActive: 0
+  floor: {fileID: 1347670784296923913}
   smashablesHolder: {fileID: 2975396513187428097}
   smashablePrefabs:
   - {fileID: 9054427060655245658, guid: b3155bbc263c2554db122d44442701a5, type: 3}
@@ -2926,6 +2928,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4494165066688074812}
   - component: {fileID: 5399694280973364484}
+  - component: {fileID: 1347670784296923913}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Floor
@@ -3028,6 +3031,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 30, y: 0.5, z: 10}
   m_Center: {x: 0, y: 0, z: 0.09}
+--- !u!114 &1347670784296923913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6385127969953176728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bb55a02280cdd54b84fd269e5872745, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  renderers: []
 --- !u!1 &6391516351890594295
 GameObject:
   m_ObjectHideFlags: 0
@@ -3105,7 +3121,7 @@ Transform:
   m_GameObject: {fileID: 6401396934753877747}
   serializedVersion: 2
   m_LocalRotation: {x: -2.5280432e-13, y: 1, z: 0.0000008493662, w: -0.00000038743013}
-  m_LocalPosition: {x: 0, y: 3.5, z: -5}
+  m_LocalPosition: {x: 0, y: 3.5, z: -5.01}
   m_LocalScale: {x: 30, y: 7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
