@@ -6,6 +6,7 @@ using UnityEngine;
 public class Smashable : MonoBehaviour
 {
     public float rageOnSmash;
+
     public static event Action<float> OnSmash;
 
     public void Smash()
@@ -14,6 +15,7 @@ public class Smashable : MonoBehaviour
         Destroy(gameObject);
     }
 
+    /*
     //TODO Replace collision with smashing of objects
     public void OnCollisionEnter(Collision collision)
     {
@@ -22,4 +24,5 @@ public class Smashable : MonoBehaviour
             Smash();
         }
     }
+    */
 }

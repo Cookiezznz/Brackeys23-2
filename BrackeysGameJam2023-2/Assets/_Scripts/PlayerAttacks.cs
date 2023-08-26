@@ -6,9 +6,10 @@ using UnityEngine.UI;
 public class PlayerAttacks : MonoBehaviour
 {
     private float attackHoldDuration;
+
     [Tooltip("If attackHoldDuration reaches maxAttackHoldDuration then on release, the player will slam the floor and enter the next floor.")]
     public float maxAttackHoldDuration;
-    
+
     public float attackCooldown = 0.5f;
     private float lastAttackTime;
     public bool attackActive;
@@ -19,12 +20,18 @@ public class PlayerAttacks : MonoBehaviour
     public Image attackIndicatorFill;
 
     public PlayerController playerController;
+
+    public LayerMask smashableLayer;
+    public PlayerMovement direction;
+
+    public Quaternion orientation = new Quaternion(1f, 1f, 1f, 1f);
+
     private void OnEnable()
     {
         InputManager.onPrimaryDown += StartAttack;
         InputManager.onPrimaryUp += EndAttack;
     }
-    
+
     private void OnDisable()
     {
         InputManager.onPrimaryDown -= StartAttack;
@@ -41,7 +48,7 @@ public class PlayerAttacks : MonoBehaviour
             {
                 //Increment hold duration
                 attackHoldDuration += Time.deltaTime;
-                if(attackHoldDuration > holdDurationToShowIndicator && !attackIndicator.activeSelf) attackIndicator.SetActive(true);
+                if (attackHoldDuration > holdDurationToShowIndicator && !attackIndicator.activeSelf) attackIndicator.SetActive(true);
             }
             else //Is fully charged
             {
@@ -56,34 +63,32 @@ public class PlayerAttacks : MonoBehaviour
             float attackIndicatorFillAmount = (attackHoldDuration - holdDurationToShowIndicator) / (maxAttackHoldDuration - holdDurationToShowIndicator);
             attackIndicatorFill.fillAmount = attackIndicatorFillAmount;
         }
-        
     }
-    
-    void StartAttack()
+
+    private void StartAttack()
     {
         //If on cooldown, do nothing...
         if (Time.time < lastAttackTime + attackCooldown) return;
-        
+
         //Can only execute once
         if (attackActive) return;
         attackActive = true;
-        
+
         //Reset Attack Indicator
         attackIndicatorFill.fillAmount = 0;
     }
-    
-    void EndAttack()
+
+    private void EndAttack()
     {
         //Can only execute once
         if (!attackActive) return;
         attackActive = false;
-        
+
         //Clear hold duration
         attackHoldDuration = 0;
         //Log the last attack time for cooldown tracking.
         lastAttackTime = Time.time;
 
-        
         //Hide Attack Indicator
         attackIndicator.SetActive(false);
 
@@ -109,14 +114,14 @@ public class PlayerAttacks : MonoBehaviour
     }
 
     //Attack for progressing levels
-    void Slam()
+    private void Slam()
     {
         Debug.Log("SLAM!");
         Debug.DrawRay(transform.position + Vector3.up * 0.2f, Vector3.down, Color.red, 5);
         RaycastHit[] hits = Physics.RaycastAll(transform.position + Vector3.up * 0.2f, Vector3.down, 1f);
-        foreach(RaycastHit hit in hits)
+        foreach (RaycastHit hit in hits)
         {
-            if(hit.collider.gameObject.CompareTag("Floor"))
+            if (hit.collider.gameObject.CompareTag("Floor"))
             {
                 hit.collider.gameObject.SetActive(false);
             }
@@ -125,10 +130,33 @@ public class PlayerAttacks : MonoBehaviour
     }
 
     //Standard Attack Implementation: Breaks Smashables
-    void Smash()
+    private void Smash()
     {
-        Debug.Log("Smash!");
-    }
+        // Need Validation
+        Debug.DrawRay(transform.position + Vector3.up * 0.2f, Vector3.forward, Color.yellow);
+        RaycastHit[] hits = Physics.BoxCastAll(transform.position, Vector3.forward, direction.moveDirection, orientation);
+        foreach (RaycastHit hit in hits)
+        {
+            if (hit.collider.gameObject.CompareTag("Smashable"))
+            {
+                hit.collider.gameObject.SetActive(false);
+                Debug.Log("Smash!");
+                playerController.rage.AddRage(10f);
+            }
+        }
 
-    
+        /*
+        RaycastHit hit;
+        if (Physics.BoxCast(transform.position, Vector3.forward, direction.moveDirection, out hit, transform.rotation, 1.0f, smashableLayer))
+        {
+            GameObject smashableObject = hit.collider.gameObject;
+            if (smashableObject.CompareTag("Smashable"))
+            {
+                Debug.Log("Smashable object detected: " + smashableObject.name);
+                smashableObject.SetActive(false);
+                playerController.rage.AddRage(10f);
+            }
+        }
+        */
+    }
 }

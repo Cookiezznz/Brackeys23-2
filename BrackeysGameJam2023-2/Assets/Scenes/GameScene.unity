@@ -329,6 +329,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmashableRoof (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 229374852743989486, guid: f098f8f3c092fd946a1812a91970c6fd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 229374852743989486, guid: f098f8f3c092fd946a1812a91970c6fd,
+        type: 3}
+      propertyPath: m_TagString
+      value: Smashable
+      objectReference: {fileID: 0}
     - target: {fileID: 6468587104219860662, guid: f098f8f3c092fd946a1812a91970c6fd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -402,6 +412,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SmashableRoof (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 229374852743989486, guid: f098f8f3c092fd946a1812a91970c6fd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 229374852743989486, guid: f098f8f3c092fd946a1812a91970c6fd,
+        type: 3}
+      propertyPath: m_TagString
+      value: Smashable
       objectReference: {fileID: 0}
     - target: {fileID: 6468587104219860662, guid: f098f8f3c092fd946a1812a91970c6fd,
         type: 3}
@@ -1141,6 +1161,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmashableRoof (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 229374852743989486, guid: f098f8f3c092fd946a1812a91970c6fd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 229374852743989486, guid: f098f8f3c092fd946a1812a91970c6fd,
+        type: 3}
+      propertyPath: m_TagString
+      value: Smashable
+      objectReference: {fileID: 0}
     - target: {fileID: 6468587104219860662, guid: f098f8f3c092fd946a1812a91970c6fd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1289,7 +1319,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.19611613, y: 0.0000048988145, z: -0.000000979763, w: 0.9805807}
+  m_LocalRotation: {x: 0.19611613, y: 0.0000049173127, z: -0.0000009834625, w: 0.9805807}
   m_LocalPosition: {x: -0.0001193285, y: 155, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1868,6 +1898,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmashableRoof (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 229374852743989486, guid: f098f8f3c092fd946a1812a91970c6fd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 229374852743989486, guid: f098f8f3c092fd946a1812a91970c6fd,
+        type: 3}
+      propertyPath: m_TagString
+      value: Smashable
+      objectReference: {fileID: 0}
     - target: {fileID: 6468587104219860662, guid: f098f8f3c092fd946a1812a91970c6fd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1985,6 +2025,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SmashableRoof (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 229374852743989486, guid: f098f8f3c092fd946a1812a91970c6fd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 229374852743989486, guid: f098f8f3c092fd946a1812a91970c6fd,
+        type: 3}
+      propertyPath: m_TagString
+      value: Smashable
       objectReference: {fileID: 0}
     - target: {fileID: 6468587104219860662, guid: f098f8f3c092fd946a1812a91970c6fd,
         type: 3}
@@ -2451,6 +2501,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmashableRoof (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 229374852743989486, guid: f098f8f3c092fd946a1812a91970c6fd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 229374852743989486, guid: f098f8f3c092fd946a1812a91970c6fd,
+        type: 3}
+      propertyPath: m_TagString
+      value: Smashable
+      objectReference: {fileID: 0}
     - target: {fileID: 6468587104219860662, guid: f098f8f3c092fd946a1812a91970c6fd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2716,6 +2776,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SmashableRoof (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 229374852743989486, guid: f098f8f3c092fd946a1812a91970c6fd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 229374852743989486, guid: f098f8f3c092fd946a1812a91970c6fd,
+        type: 3}
+      propertyPath: m_TagString
+      value: Smashable
       objectReference: {fileID: 0}
     - target: {fileID: 6468587104219860662, guid: f098f8f3c092fd946a1812a91970c6fd,
         type: 3}
@@ -3256,6 +3326,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmashableRoof (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 229374852743989486, guid: f098f8f3c092fd946a1812a91970c6fd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 229374852743989486, guid: f098f8f3c092fd946a1812a91970c6fd,
+        type: 3}
+      propertyPath: m_TagString
+      value: Smashable
+      objectReference: {fileID: 0}
     - target: {fileID: 6468587104219860662, guid: f098f8f3c092fd946a1812a91970c6fd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3329,6 +3409,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SmashableRoof (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 229374852743989486, guid: f098f8f3c092fd946a1812a91970c6fd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 229374852743989486, guid: f098f8f3c092fd946a1812a91970c6fd,
+        type: 3}
+      propertyPath: m_TagString
+      value: Smashable
       objectReference: {fileID: 0}
     - target: {fileID: 6468587104219860662, guid: f098f8f3c092fd946a1812a91970c6fd,
         type: 3}
@@ -3569,6 +3659,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmashableRoof (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 229374852743989486, guid: f098f8f3c092fd946a1812a91970c6fd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 229374852743989486, guid: f098f8f3c092fd946a1812a91970c6fd,
+        type: 3}
+      propertyPath: m_TagString
+      value: Smashable
+      objectReference: {fileID: 0}
     - target: {fileID: 6468587104219860662, guid: f098f8f3c092fd946a1812a91970c6fd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3642,6 +3742,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SmashableRoof (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 229374852743989486, guid: f098f8f3c092fd946a1812a91970c6fd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 229374852743989486, guid: f098f8f3c092fd946a1812a91970c6fd,
+        type: 3}
+      propertyPath: m_TagString
+      value: Smashable
       objectReference: {fileID: 0}
     - target: {fileID: 6468587104219860662, guid: f098f8f3c092fd946a1812a91970c6fd,
         type: 3}
@@ -3717,6 +3827,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmashableRoof (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 229374852743989486, guid: f098f8f3c092fd946a1812a91970c6fd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 229374852743989486, guid: f098f8f3c092fd946a1812a91970c6fd,
+        type: 3}
+      propertyPath: m_TagString
+      value: Smashable
+      objectReference: {fileID: 0}
     - target: {fileID: 6468587104219860662, guid: f098f8f3c092fd946a1812a91970c6fd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3790,6 +3910,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SmashableRoof (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 229374852743989486, guid: f098f8f3c092fd946a1812a91970c6fd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 229374852743989486, guid: f098f8f3c092fd946a1812a91970c6fd,
+        type: 3}
+      propertyPath: m_TagString
+      value: Smashable
       objectReference: {fileID: 0}
     - target: {fileID: 6468587104219860662, guid: f098f8f3c092fd946a1812a91970c6fd,
         type: 3}
@@ -3999,6 +4129,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmashableRoof
       objectReference: {fileID: 0}
+    - target: {fileID: 229374852743989486, guid: f098f8f3c092fd946a1812a91970c6fd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 229374852743989486, guid: f098f8f3c092fd946a1812a91970c6fd,
+        type: 3}
+      propertyPath: m_TagString
+      value: Smashable
+      objectReference: {fileID: 0}
     - target: {fileID: 6468587104219860662, guid: f098f8f3c092fd946a1812a91970c6fd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4072,6 +4212,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SmashableRoof (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 229374852743989486, guid: f098f8f3c092fd946a1812a91970c6fd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 229374852743989486, guid: f098f8f3c092fd946a1812a91970c6fd,
+        type: 3}
+      propertyPath: m_TagString
+      value: Smashable
       objectReference: {fileID: 0}
     - target: {fileID: 6468587104219860662, guid: f098f8f3c092fd946a1812a91970c6fd,
         type: 3}
@@ -4457,6 +4607,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SmashableRoof (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 229374852743989486, guid: f098f8f3c092fd946a1812a91970c6fd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 229374852743989486, guid: f098f8f3c092fd946a1812a91970c6fd,
+        type: 3}
+      propertyPath: m_TagString
+      value: Smashable
       objectReference: {fileID: 0}
     - target: {fileID: 6468587104219860662, guid: f098f8f3c092fd946a1812a91970c6fd,
         type: 3}
@@ -5939,7 +6099,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1448960798}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.19611613, y: 0.0000048988145, z: -0.000000979763, w: 0.9805807}
+  m_LocalRotation: {x: 0.19611613, y: 0.0000049173127, z: -0.0000009834625, w: 0.9805807}
   m_LocalPosition: {x: -0.0001193285, y: 155, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6465,6 +6625,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SmashableRoof (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 229374852743989486, guid: f098f8f3c092fd946a1812a91970c6fd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 229374852743989486, guid: f098f8f3c092fd946a1812a91970c6fd,
+        type: 3}
+      propertyPath: m_TagString
+      value: Smashable
       objectReference: {fileID: 0}
     - target: {fileID: 6468587104219860662, guid: f098f8f3c092fd946a1812a91970c6fd,
         type: 3}
@@ -6996,6 +7166,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmashableRoof (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 229374852743989486, guid: f098f8f3c092fd946a1812a91970c6fd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 229374852743989486, guid: f098f8f3c092fd946a1812a91970c6fd,
+        type: 3}
+      propertyPath: m_TagString
+      value: Smashable
+      objectReference: {fileID: 0}
     - target: {fileID: 6468587104219860662, guid: f098f8f3c092fd946a1812a91970c6fd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7069,6 +7249,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SmashableRoof (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 229374852743989486, guid: f098f8f3c092fd946a1812a91970c6fd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 229374852743989486, guid: f098f8f3c092fd946a1812a91970c6fd,
+        type: 3}
+      propertyPath: m_TagString
+      value: Smashable
       objectReference: {fileID: 0}
     - target: {fileID: 6468587104219860662, guid: f098f8f3c092fd946a1812a91970c6fd,
         type: 3}
@@ -7179,6 +7369,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SmashableRoof (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 229374852743989486, guid: f098f8f3c092fd946a1812a91970c6fd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 229374852743989486, guid: f098f8f3c092fd946a1812a91970c6fd,
+        type: 3}
+      propertyPath: m_TagString
+      value: Smashable
       objectReference: {fileID: 0}
     - target: {fileID: 6468587104219860662, guid: f098f8f3c092fd946a1812a91970c6fd,
         type: 3}
@@ -7626,6 +7826,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmashableRoof (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 229374852743989486, guid: f098f8f3c092fd946a1812a91970c6fd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 229374852743989486, guid: f098f8f3c092fd946a1812a91970c6fd,
+        type: 3}
+      propertyPath: m_TagString
+      value: Smashable
+      objectReference: {fileID: 0}
     - target: {fileID: 6468587104219860662, guid: f098f8f3c092fd946a1812a91970c6fd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7699,6 +7909,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SmashableRoof (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 229374852743989486, guid: f098f8f3c092fd946a1812a91970c6fd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 229374852743989486, guid: f098f8f3c092fd946a1812a91970c6fd,
+        type: 3}
+      propertyPath: m_TagString
+      value: Smashable
       objectReference: {fileID: 0}
     - target: {fileID: 6468587104219860662, guid: f098f8f3c092fd946a1812a91970c6fd,
         type: 3}
@@ -7899,6 +8119,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmashableRoof (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 229374852743989486, guid: f098f8f3c092fd946a1812a91970c6fd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 229374852743989486, guid: f098f8f3c092fd946a1812a91970c6fd,
+        type: 3}
+      propertyPath: m_TagString
+      value: Smashable
+      objectReference: {fileID: 0}
     - target: {fileID: 6468587104219860662, guid: f098f8f3c092fd946a1812a91970c6fd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8044,6 +8274,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SmashableRoof (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 229374852743989486, guid: f098f8f3c092fd946a1812a91970c6fd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 229374852743989486, guid: f098f8f3c092fd946a1812a91970c6fd,
+        type: 3}
+      propertyPath: m_TagString
+      value: Smashable
       objectReference: {fileID: 0}
     - target: {fileID: 6468587104219860662, guid: f098f8f3c092fd946a1812a91970c6fd,
         type: 3}
@@ -8461,6 +8701,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7488324968328559588}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2142216933 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2765378293723143498, guid: ab2b2c016e2ae1a4fa015ae678f4dc13,
+    type: 3}
+  m_PrefabInstance: {fileID: 7488324968328559588}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2142216924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e1fa9b7c87b138449730f4a1c3d2691, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &603576443488445862
 GameObject:
   m_ObjectHideFlags: 0
@@ -9216,6 +9468,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 458903946442456901, guid: ab2b2c016e2ae1a4fa015ae678f4dc13,
         type: 3}
+      propertyPath: direction
+      value: 
+      objectReference: {fileID: 2142216933}
+    - target: {fileID: 458903946442456901, guid: ab2b2c016e2ae1a4fa015ae678f4dc13,
+        type: 3}
       propertyPath: attackCooldown
       value: 0.1
       objectReference: {fileID: 0}
@@ -9229,6 +9486,11 @@ PrefabInstance:
       propertyPath: attackIndicatorFill
       value: 
       objectReference: {fileID: 1741522537}
+    - target: {fileID: 458903946442456901, guid: ab2b2c016e2ae1a4fa015ae678f4dc13,
+        type: 3}
+      propertyPath: smashableLayer.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 458903946442456901, guid: ab2b2c016e2ae1a4fa015ae678f4dc13,
         type: 3}
       propertyPath: holdDurationToShowIndicator
