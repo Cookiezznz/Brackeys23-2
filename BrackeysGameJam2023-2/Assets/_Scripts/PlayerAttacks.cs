@@ -24,6 +24,8 @@ public class PlayerAttacks : MonoBehaviour
     public LayerMask smashableLayer;
     public PlayerMovement direction;
 
+    public Vector3 tempDirection;
+
     public Quaternion orientation = new Quaternion(1f, 1f, 1f, 1f);
 
     private void OnEnable()
@@ -133,7 +135,7 @@ public class PlayerAttacks : MonoBehaviour
     private void Smash()
     {
         // Need Validation
-        Debug.DrawRay(transform.position + Vector3.up * 0.2f, Vector3.forward, Color.yellow);
+        Debug.DrawRay(transform.position + Vector3.up * 0.2f, direction.moveDirection, Color.yellow);
         RaycastHit[] hits = Physics.BoxCastAll(transform.position, Vector3.forward, direction.moveDirection, orientation);
         foreach (RaycastHit hit in hits)
         {
@@ -144,6 +146,7 @@ public class PlayerAttacks : MonoBehaviour
                 playerController.rage.AddRage(10f);
             }
         }
+        SaveDirection();
 
         /*
         RaycastHit hit;
@@ -158,5 +161,18 @@ public class PlayerAttacks : MonoBehaviour
             }
         }
         */
+    }
+
+    private void SaveDirection()
+    {
+        Vector3 zero = Vector3.zero;
+        if (direction.moveDirection != zero)
+        {
+            tempDirection = direction.moveDirection;
+        }
+        if (direction.moveDirection == zero)
+        {
+            tempDirection = direction.moveDirection;
+        }
     }
 }
