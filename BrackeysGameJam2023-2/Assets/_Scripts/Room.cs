@@ -13,6 +13,7 @@ public class Room : MonoBehaviour
     public AnimationCurve roomRevealFadeCurve;
     public bool isActive;
     public EnableFloor floor;
+    public Room previousRoom;
 
     [Header("Smashables")]
     public Transform smashablesHolder;
@@ -27,7 +28,7 @@ public class Room : MonoBehaviour
     public Transform hostileHolder;
     public GameObject[] hostilePrefabs;
     public float numberOfHostilesToSpawn;
-    public List<GameObject> hostiles = new List<GameObject>();
+    public List<HostileController> hostiles = new List<HostileController>();
 
     void Start()
     {
@@ -42,86 +43,100 @@ public class Room : MonoBehaviour
 
         if(smashablePrefabs.Length > 0)
         {
-            // Define the grid cell size based on the minimum distance
-            float gridCellSize = minDistanceBetweenSmashables;
-
-            // Calculate the number of cells in each dimension
-            int gridCellsX = Mathf.CeilToInt((xConstraints.y - xConstraints.x) / gridCellSize);
-            int gridCellsZ = Mathf.CeilToInt((zConstraints.y - zConstraints.x) / gridCellSize);
-
-            // Create a 2D array to represent the grid cells
-            bool[,] occupiedGridCells = new bool[gridCellsX, gridCellsZ];
-
-            //Spawn Smashables
-            for (int smashableNum = 0; smashableNum < numberOfSmashablesToSpawn; smashableNum++)
-            {
-                int randomSmashable = Random.Range(0, smashablePrefabs.Length);
-                Smashable newSmashable = Instantiate(smashablePrefabs[randomSmashable], smashablesHolder).GetComponent<Smashable>();
-                smashables.Add(newSmashable);
-
-                int maxSpawnAttempts = 20;
-                // Set position with minimum distance check using grid
-                Vector3 pos = Vector3.zero;
-
-                bool validPositionFound = false;
-                int attempts = 0;
-
-                while (!validPositionFound && attempts < maxSpawnAttempts)
-                {
-                    pos = new Vector3(Random.Range(xConstraints.x, xConstraints.y), 0.5f, Random.Range(zConstraints.x, zConstraints.y));
-
-                    int cellX = Mathf.FloorToInt((pos.x - xConstraints.x) / gridCellSize);
-                    int cellZ = Mathf.FloorToInt((pos.z - zConstraints.x) / gridCellSize);
-
-                    // Check adjacent grid cells for Smashables
-                    bool tooClose = false;
-                    for (int x = Mathf.Max(0, cellX - 1); x <= Mathf.Min(gridCellsX - 1, cellX + 1); x++)
-                    {
-                        for (int z = Mathf.Max(0, cellZ - 1); z <= Mathf.Min(gridCellsZ - 1, cellZ + 1); z++)
-                        {
-                            if (occupiedGridCells[x, z])
-                            {
-                                tooClose = true;
-                                break;
-                            }
-                        }
-                        if (tooClose)
-                            break;
-                    }
-
-                    if (!tooClose)
-                    {
-                        validPositionFound = true;
-                        // Mark grid cells as occupied
-                        occupiedGridCells[cellX, cellZ] = true;
-                    }
-
-                    attempts++;
-                }
-
-                if (!validPositionFound)
-                {
-                    //Debug.LogWarning("Unable to find a valid position after " + maxSpawnAttempts + " attempts.");
-                    break; // Exit the spawning loop
-                }
-
-                newSmashable.transform.localPosition = pos;
-            }
+            PopulateSmashables();
         }
         
 
         if(hostilePrefabs.Length > 0)
         {
-            //Spawn Hostiles
-            for (int hostileNum = 0; hostileNum < numberOfHostilesToSpawn; hostileNum++)
-            {
-                int randomHostile = Random.Range(0, hostilePrefabs.Length);
-                GameObject newHostile = Instantiate(hostilePrefabs[randomHostile], hostileHolder);
-                hostiles.Add(newHostile);
-            }
+            PopulateHostiles();
         }
-        
+    }
 
+    private void PopulateHostiles()
+    {
+        //Spawn Hostiles
+        for (int hostileNum = 0; hostileNum < numberOfHostilesToSpawn; hostileNum++)
+        {
+            int randomHostile = Random.Range(0, hostilePrefabs.Length);
+            HostileController newHostile = Instantiate(hostilePrefabs[randomHostile], hostileHolder).GetComponent<HostileController>();
+            newHostile.transform.localPosition = new Vector3(Random.Range(xConstraints.x, xConstraints.y), 0, Random.Range(zConstraints.x, zConstraints.y));
+            newHostile.room = this;
+            hostiles.Add(newHostile);
+            HostileManager.Instance.hostiles.Add(newHostile);
+        }
+    }
+
+    private void PopulateSmashables()
+    {
+        // Define the grid cell size based on the minimum distance
+        float gridCellSize = minDistanceBetweenSmashables;
+
+        // Calculate the number of cells in each dimension
+        int gridCellsX = Mathf.CeilToInt((xConstraints.y - xConstraints.x) / gridCellSize);
+        int gridCellsZ = Mathf.CeilToInt((zConstraints.y - zConstraints.x) / gridCellSize);
+
+        // Create a 2D array to represent the grid cells
+        bool[,] occupiedGridCells = new bool[gridCellsX, gridCellsZ];
+
+        //Spawn Smashables
+        for (int smashableNum = 0; smashableNum < numberOfSmashablesToSpawn; smashableNum++)
+        {
+            int randomSmashable = Random.Range(0, smashablePrefabs.Length);
+            Smashable newSmashable =
+                Instantiate(smashablePrefabs[randomSmashable], smashablesHolder).GetComponent<Smashable>();
+            smashables.Add(newSmashable);
+
+            int maxSpawnAttempts = 20;
+            // Set position with minimum distance check using grid
+            Vector3 pos = Vector3.zero;
+
+            bool validPositionFound = false;
+            int attempts = 0;
+
+            while (!validPositionFound && attempts < maxSpawnAttempts)
+            {
+                pos = new Vector3(Random.Range(xConstraints.x, xConstraints.y), 0.5f,
+                    Random.Range(zConstraints.x, zConstraints.y));
+
+                int cellX = Mathf.FloorToInt((pos.x - xConstraints.x) / gridCellSize);
+                int cellZ = Mathf.FloorToInt((pos.z - zConstraints.x) / gridCellSize);
+
+                // Check adjacent grid cells for Smashables
+                bool tooClose = false;
+                for (int x = Mathf.Max(0, cellX - 1); x <= Mathf.Min(gridCellsX - 1, cellX + 1); x++)
+                {
+                    for (int z = Mathf.Max(0, cellZ - 1); z <= Mathf.Min(gridCellsZ - 1, cellZ + 1); z++)
+                    {
+                        if (occupiedGridCells[x, z])
+                        {
+                            tooClose = true;
+                            break;
+                        }
+                    }
+
+                    if (tooClose)
+                        break;
+                }
+
+                if (!tooClose)
+                {
+                    validPositionFound = true;
+                    // Mark grid cells as occupied
+                    occupiedGridCells[cellX, cellZ] = true;
+                }
+
+                attempts++;
+            }
+
+            if (!validPositionFound)
+            {
+                //Debug.LogWarning("Unable to find a valid position after " + maxSpawnAttempts + " attempts.");
+                break; // Exit the spawning loop
+            }
+
+            newSmashable.transform.localPosition = pos;
+        }
     }
 
     private void Update()
@@ -141,13 +156,18 @@ public class Room : MonoBehaviour
         isActive = true;
         if(frontWallFacade)
             StartCoroutine(RevealRoom());
+        if(previousRoom)
+            previousRoom.DeactivateRoom();
+
+
     }
 
     public void DeactivateRoom()
     {
         if (!isActive) return;
         isActive = false;
-        floor.DisableFloorRenderers();
+        //floor.DisableFloorRenderers();
+        
     }
 
 
