@@ -112,6 +112,7 @@ public class AudioManager : Singleton<AudioManager>
         {
             musicSource = gameObject.AddComponent<AudioSource>();
             musicSource.outputAudioMixerGroup = musicMix;
+
         }
         
         currentMusic = musicToPlay;
