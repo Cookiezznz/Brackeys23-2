@@ -23,6 +23,7 @@ public class GameStateManager : Singleton<GameStateManager>
 
     [Header("Update Components")]
     public PlayerController playerController;
+    public HostileManager hostileManager;
 
     void OnEnable()
     {
@@ -52,6 +53,8 @@ public class GameStateManager : Singleton<GameStateManager>
     {
         if(playerController)
             playerController.PlayerUpdate();
+        if (hostileManager)
+            hostileManager.UpdateHostiles();
     }
 
     public void PauseGame()

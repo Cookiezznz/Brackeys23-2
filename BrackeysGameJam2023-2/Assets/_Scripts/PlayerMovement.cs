@@ -20,7 +20,9 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 xConstraints;
     public Vector2 zConstraints;
 
-    public Vector3 rayDirection, start;
+    public float speedReducedPerNearbyHostile;
+
+    public PlayerController controller;
 
     private void OnEnable()
     {
@@ -50,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
             moveAccelleration = Mathf.Min(moveAccelleration += Time.deltaTime, moveAccellerationDuration);
 
         //Calculate the next position
-        Vector3 translatePosition = movementSpeed * movementCurve.Evaluate(moveAccelleration / moveAccellerationDuration) * moveDirection;
+        Vector3 translatePosition = (movementSpeed * movementCurve.Evaluate(moveAccelleration / moveAccellerationDuration) * moveDirection) * MathF.Max(1 - (speedReducedPerNearbyHostile * controller.nearbyHostiles.Count), 0.2f);
         currentSpeed = translatePosition;
 
         transform.Translate(translatePosition * Time.deltaTime);
