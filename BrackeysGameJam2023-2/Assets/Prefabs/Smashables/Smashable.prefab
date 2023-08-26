@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 591102017069088379}
   m_Layer: 0
   m_Name: Smashable
-  m_TagString: Untagged
+  m_TagString: Smashable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
