@@ -30,7 +30,7 @@ public class Smashable : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (smash)
+        if (smash && collision.transform.CompareTag("FloorCube"))
         {
             OnSmash.Invoke(rageOnSmash);
             Destroy(gameObject);
