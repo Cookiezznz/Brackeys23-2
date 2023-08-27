@@ -53,6 +53,7 @@ MonoBehaviour:
   Rigidbody: {fileID: 8740031456825297190}
   canMove: 1
   movementSpeed: 20
+  currentSpeed: {x: 0, y: 0, z: 0}
   movementCurve:
     serializedVersion: 2
     m_Curve:
@@ -79,8 +80,11 @@ MonoBehaviour:
     m_RotationOrder: 4
   moveAccellerationDuration: 0.25
   moveAccelleration: 0
+  moveDirection: {x: 0, y: 0, z: 0}
   xConstraints: {x: -14.5, y: 14.5}
   zConstraints: {x: -4.5, y: 4.5}
+  speedReducedPerNearbyHostile: 0
+  controller: {fileID: 0}
 --- !u!114 &2609368280193062615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,6 +100,13 @@ MonoBehaviour:
   movement: {fileID: 2765378293723143498}
   rage: {fileID: 4549993049719727492}
   attacks: {fileID: 458903946442456901}
+  nearbyHostiles: []
+  arrestSlider: {fileID: 0}
+  arrest: 0
+  arrestThreshhold: 0
+  arrestPerSecondPerHostile: 0
+  arrestReductionSpeedMultiplier: 0
+  isArrested: 0
 --- !u!54 &8740031456825297190
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -104,7 +115,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 764616153579937858}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 60
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -179,9 +190,20 @@ MonoBehaviour:
   attackCooldown: 0.3
   attackActive: 0
   attackFullyCharged: 0
+  slamRadius: 0
   attackIndicator: {fileID: 0}
+  holdDurationToShowIndicator: 0
   attackIndicatorFill: {fileID: 0}
   playerController: {fileID: 2609368280193062615}
+  playerMovement: {fileID: 0}
+  attackDirection: {x: 0, y: 0, z: 0}
+  maxAttackDistance: 0
+  holdAttackDistanceCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &4276631183174741170
 GameObject:
   m_ObjectHideFlags: 0

@@ -49,8 +49,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   room: {fileID: 0}
-  effectRadius: 2
-  attacking: 0
+  arrestRadius: 0.3
+  playerSlamExplosionForce: 5000
+  playerSlamExplosionRadius: 5
+  explosionUpwardsModifier: 10
 --- !u!54 &6118481365456795418
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -59,7 +61,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6021923818275836855}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 60
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}

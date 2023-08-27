@@ -166,6 +166,10 @@ public class Room : MonoBehaviour
     {
         if (!isActive) return;
         isActive = false;
+        foreach (HostileController hostile in hostiles)
+        {
+            hostile.Deactivate();
+        }
         //floor.DisableFloorRenderers();
         
     }
