@@ -12344,6 +12344,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1693849331}
     m_Modifications:
+    - target: {fileID: 2849904549416316264, guid: 792969756d0701a48a2917ae8fc7878b,
+        type: 3}
+      propertyPath: startingMusic
+      value: GameMusic_NoRage
+      objectReference: {fileID: 0}
     - target: {fileID: 3850225283944689370, guid: 792969756d0701a48a2917ae8fc7878b,
         type: 3}
       propertyPath: m_LocalPosition.x
