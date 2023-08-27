@@ -56,13 +56,13 @@ MonoBehaviour:
   music:
   - name: TitleMusic
     clip: {fileID: 8300000, guid: ec0057b64ae796549a809908719a4ba5, type: 3}
-    volumePercent: 1
+    volumePercent: 0.4
   - name: GameMusic_NoRage
     clip: {fileID: 8300000, guid: e4ec3d12608eeed4f95874c80a330028, type: 3}
-    volumePercent: 1
+    volumePercent: 0.2
   - name: GameMusic_Rage
     clip: {fileID: 8300000, guid: 3ef3acd658b71744793921050cf111f0, type: 3}
-    volumePercent: 1
+    volumePercent: 0.2
   sfxMute: 0
   sfxVolume: 1
   sfxMix: {fileID: 1164407368917790334, guid: 40e2884f3344b2e46b7d709567c2fe48, type: 2}
@@ -100,11 +100,38 @@ MonoBehaviour:
   - name: smashwater
     clip: {fileID: 8300000, guid: 0c92028897200c14682862277b893e01, type: 3}
     volumePercent: 1
+  - name: promo
+    clip: {fileID: 8300000, guid: 973698d36ae964940a026c9dec748b78, type: 3}
+    volumePercent: 1
   dialogueMute: 0
   dialogueVolume: 1
   dialogueMix: {fileID: -321397112277999116, guid: 40e2884f3344b2e46b7d709567c2fe48,
     type: 2}
   dialogue:
   - name: DialogueTest
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 9958d95881532de4480b8d3d9591529c, type: 3}
+    volumePercent: 1
+  - name: arrest1
+    clip: {fileID: 8300000, guid: f553eb075198fc842b2cb659035251d2, type: 3}
+    volumePercent: 1
+  - name: arrest2
+    clip: {fileID: 8300000, guid: bd1786f501f89064c91c89cc51d30159, type: 3}
+    volumePercent: 1
+  - name: arrest3
+    clip: {fileID: 8300000, guid: 097faede90b352641bf169752241a8db, type: 3}
+    volumePercent: 1
+  - name: arrest4
+    clip: {fileID: 8300000, guid: 1f9e6742522d6f249ab0080585bcf2a0, type: 3}
+    volumePercent: 1
+  - name: arrest5
+    clip: {fileID: 8300000, guid: fd7763884ccff264e811f76ab0b82d43, type: 3}
+    volumePercent: 1
+  - name: guarddie1
+    clip: {fileID: 8300000, guid: d5c48de5a1c2c3c40895955c75f9dbb5, type: 3}
+    volumePercent: 1
+  - name: guarddie2
+    clip: {fileID: 8300000, guid: 057a0eb8059616a4fa27eb9186adb19d, type: 3}
+    volumePercent: 1
+  - name: guarddie3
+    clip: {fileID: 8300000, guid: 89ad20832a7254e408008f4c028c131a, type: 3}
     volumePercent: 1

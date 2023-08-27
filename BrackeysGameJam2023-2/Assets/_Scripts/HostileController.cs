@@ -83,6 +83,11 @@ public class HostileController : MonoBehaviour
         agent.enabled = false;
         player.arrest.RemoveNearbyEnemy(this);
 
+        if (Vector3.Distance(player.transform.position, transform.position) < 2)
+        {
+            AudioManager.Instance.PlayDialogue($"guarddie{Random.Range(1,4)}");
+        }
+
         //rbody.useGravity = false;
         //rbody.AddExplosionForce(playerSlamExplosionForce, player.transform.position - 0.1f, playerSlamExplosionRadius, explosionUpwardsModifier, ForceMode.Impulse);
     }

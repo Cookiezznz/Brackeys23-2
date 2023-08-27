@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class PlayerArrest : MonoBehaviour
 {
@@ -33,6 +34,7 @@ public class PlayerArrest : MonoBehaviour
         if (isArrested) return;
         isArrested = true;
         onArrest?.Invoke();
+        AudioManager.Instance.PlayDialogue($"arrest{Random.Range(1,6)}");
     }
 
     public void AddNearbyEnemy(HostileController hostile)

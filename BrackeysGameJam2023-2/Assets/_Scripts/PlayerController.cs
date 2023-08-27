@@ -34,6 +34,7 @@ public class PlayerController : Singleton<PlayerController>
     {
         hasWon = true;
         yield return new WaitForSeconds(2);
+        AudioManager.Instance.PlaySound("promo");
         onWin?.Invoke();
         yield return null;
     }
