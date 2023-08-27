@@ -8,10 +8,11 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Components")]
     public PlayerMovement movement;
+
     public PlayerRage rage;
     public PlayerAttacks attacks;
 
-    [Header("Arrest Information")] 
+    [Header("Arrest Information")]
     public List<HostileController> nearbyHostiles = new List<HostileController>();
 
     public Slider arrestSlider;
@@ -20,6 +21,7 @@ public class PlayerController : MonoBehaviour
     public float arrestPerSecondPerHostile;
     public float arrestReductionSpeedMultiplier;
     public bool isArrested;
+
     public event Action onArrest;
 
     public void PlayerUpdate()
@@ -39,14 +41,12 @@ public class PlayerController : MonoBehaviour
 
     public void RemoveNearbyEnemy(HostileController hostile)
     {
-        if(nearbyHostiles.Contains(hostile))
+        if (nearbyHostiles.Contains(hostile))
             nearbyHostiles.Remove(hostile);
     }
 
     public void UpdateArrest()
     {
-        
-
         arrest += (nearbyHostiles.Count > 0 ? arrestPerSecondPerHostile * nearbyHostiles.Count : -arrestPerSecondPerHostile * arrestReductionSpeedMultiplier) * Time.deltaTime;
         arrest = MathF.Max(0, arrest);
 
@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
             arrestSlider.gameObject.SetActive(false);
         }
 
-        if(arrest > 0)
+        if (arrest > 0)
             arrestSlider.value = arrest / arrestThreshhold;
 
         if (arrest > arrestThreshhold)
@@ -70,15 +70,10 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void Arrest()
+    private void Arrest()
     {
         if (isArrested) return;
         isArrested = true;
         onArrest?.Invoke();
     }
-
-
-
-
-
 }

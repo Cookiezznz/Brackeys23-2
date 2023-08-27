@@ -32,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 150, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4724019641960810595}
@@ -83,8 +83,17 @@ MonoBehaviour:
   moveDirection: {x: 0, y: 0, z: 0}
   xConstraints: {x: -14.5, y: 14.5}
   zConstraints: {x: -4.5, y: 4.5}
+  animator: {fileID: 2600247047328797692}
+  player: {fileID: 764616153579937858}
   speedReducedPerNearbyHostile: 0
+  attackHoldSlowOverDuration:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   controller: {fileID: 0}
+  playerAttack: {fileID: 0}
 --- !u!114 &2609368280193062615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,16 +195,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84fef6c3953821648a76df35bab4cf02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackHoldDuration: 0
   maxAttackHoldDuration: 1.5
   attackCooldown: 0.3
   attackActive: 0
   attackFullyCharged: 0
   slamRadius: 0
+  attackDurationNormalized: 0
+  slamMovementLockDuration: 0
   attackIndicator: {fileID: 0}
   holdDurationToShowIndicator: 0
   attackIndicatorFill: {fileID: 0}
   playerController: {fileID: 2609368280193062615}
   playerMovement: {fileID: 0}
+  playerRage: {fileID: 0}
   attackDirection: {x: 0, y: 0, z: 0}
   maxAttackDistance: 0
   holdAttackDistanceCurve:
@@ -214,6 +227,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4724019641960810595}
   - component: {fileID: 5837362535754517697}
+  - component: {fileID: 2600247047328797692}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -230,8 +244,8 @@ Transform:
   m_GameObject: {fileID: 4276631183174741170}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -1.18, y: 2.29, z: 0}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6966912622584829010}
@@ -277,7 +291,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: aa8ed89dfd22f7b43b59597f6aaf64ee, type: 3}
+  m_Sprite: {fileID: 208669874, guid: ebf3430248c29ea429de78c98c9aeb5e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -288,3 +302,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &2600247047328797692
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4276631183174741170}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 671935c3551939b41bf1924dcb9692bd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
