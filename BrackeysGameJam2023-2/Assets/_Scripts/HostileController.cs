@@ -77,6 +77,11 @@ public class HostileController : MonoBehaviour
 
     public void Deactivate()
     {
+<<<<<<< Updated upstream
+=======
+        animator.SetBool("isSplat", true);
+        Debug.Log("yes");
+>>>>>>> Stashed changes
         agent.enabled = false;
         player.arrest.RemoveNearbyEnemy(this);
         
