@@ -17,6 +17,7 @@ public class HostileController : MonoBehaviour
     private Rigidbody rigidbody;
     public GameObject hostilePosition;
     public GameObject playerPosition;
+    public Animator animator;
 
     [Header("Room")]
     public Room room;
@@ -67,19 +68,22 @@ public class HostileController : MonoBehaviour
 
         if (distance < arrestRadius)
         {
+            animator.SetBool("isIdle", true);
             player.arrest.AddNearbyEnemy(this);
         }
         else
         {
+            animator.SetBool("isIdle", false);
             player.arrest.RemoveNearbyEnemy(this);
         }
     }
 
     public void Deactivate()
     {
+        animator.SetBool("isSplat", true);
         agent.enabled = false;
         player.arrest.RemoveNearbyEnemy(this);
-        
+
         //rbody.useGravity = false;
         //rbody.AddExplosionForce(playerSlamExplosionForce, player.transform.position - 0.1f, playerSlamExplosionRadius, explosionUpwardsModifier, ForceMode.Impulse);
     }
