@@ -977,7 +977,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 272053864}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.19611613, y: 0.0000048754673, z: -0.0000009750934, w: 0.9805807}
+  m_LocalRotation: {x: 0.14381035, y: 0.0000035209252, z: -0.0000005116641, w: 0.9896053}
   m_LocalPosition: {x: -0.0001193285, y: 155, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2283,7 +2283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 418e42c7d0405cc48a7b83f63ea53bb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Path: {fileID: 671330303}
+  m_Path: {fileID: 0}
   m_PathPosition: 0.4999938
   m_PositionUnits: 0
   m_PathOffset: {x: 0, y: 0, z: 0}
@@ -3305,61 +3305,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 645150622}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &671330302
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 671330304}
-  - component: {fileID: 671330303}
-  m_Layer: 0
-  m_Name: Dolly Track
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &671330303
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 671330302}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a200b19ca1a9685429ed7e043c28e904, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Resolution: 20
-  m_Appearance:
-    pathColor: {r: 0, g: 1, b: 0, a: 1}
-    inactivePathColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-    width: 0.2
-  m_Looped: 0
-  m_Waypoints:
-  - position: {x: -6, y: 155, z: -12}
-    roll: 0
-  - position: {x: 6, y: 155, z: -12}
-    roll: 0
---- !u!4 &671330304
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 671330302}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1623182993}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &692162719
 GameObject:
   m_ObjectHideFlags: 0
@@ -3370,8 +3315,6 @@ GameObject:
   m_Component:
   - component: {fileID: 692162720}
   - component: {fileID: 692162723}
-  - component: {fileID: 692162722}
-  - component: {fileID: 692162721}
   m_Layer: 0
   m_Name: Virtual Camera
   m_TagString: Untagged
@@ -3387,7 +3330,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 692162719}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.19611613, y: 0.0000048754673, z: -0.0000009750935, w: 0.9805807}
+  m_LocalRotation: {x: 0.14381035, y: 0.0000035209252, z: -0.0000005116641, w: 0.9896053}
   m_LocalPosition: {x: -0.0001193285, y: 155, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3395,69 +3338,6 @@ Transform:
   - {fileID: 433442074}
   m_Father: {fileID: 1623182993}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.24}
---- !u!114 &692162721
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 692162719}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c29bf9050ad7de64f9575e18e29832e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vCam: {fileID: 692162723}
-  enrageShakeStart: 1
-  shakeCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: -0
-      outSlope: -0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.24166666
-    - serializedVersion: 3
-      time: 0.5979836
-      value: -0.0018571354
-      inSlope: 0.02696508
-      outSlope: 0.02696508
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.20738974
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0.514151
-      inSlope: 1.7394347
-      outSlope: 1.7394347
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.1416549
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
---- !u!114 &692162722
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 692162719}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68ce32c3b9e6bb4469ad59f327082c1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerToFollow: {fileID: 0}
-  worldOffset: {x: 0, y: 5, z: 0}
-  camDolly: {fileID: 671330303}
-  vCam: {fileID: 692162723}
 --- !u!114 &692162723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3476,8 +3356,8 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 10
   m_StandbyUpdate: 2
-  m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 0}
+  m_LookAt: {fileID: 2142216928}
+  m_Follow: {fileID: 2142216928}
   m_Lens:
     FieldOfView: 60.000004
     OrthographicSize: 10
@@ -4630,7 +4510,6 @@ GameObject:
   m_Component:
   - component: {fileID: 924061802}
   - component: {fileID: 924061804}
-  - component: {fileID: 924061803}
   m_Layer: 0
   m_Name: Global Volume
   m_TagString: Untagged
@@ -4653,21 +4532,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1623182993}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &924061803
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 924061801}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90d2539629b031d42abaa432a3a69380, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  standardProfile: {fileID: 11400000, guid: a6560a915ef98420e9faacc1c7438823, type: 2}
-  enragedProfile: {fileID: 11400000, guid: ccbe7d9917f601c4896352d81ecc6536, type: 2}
-  volume: {fileID: 924061804}
 --- !u!114 &924061804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6529,7 +6393,6 @@ Transform:
   - {fileID: 272053865}
   - {fileID: 10403480}
   - {fileID: 924061802}
-  - {fileID: 671330304}
   - {fileID: 692162720}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
