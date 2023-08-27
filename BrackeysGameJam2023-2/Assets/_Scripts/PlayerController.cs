@@ -33,6 +33,7 @@ public class PlayerController : Singleton<PlayerController>
     public IEnumerator winEnumerator()
     {
         hasWon = true;
+        AudioManager.Instance.PlaySound("promo");
         yield return new WaitForSeconds(2);
         onWin?.Invoke();
         yield return null;
