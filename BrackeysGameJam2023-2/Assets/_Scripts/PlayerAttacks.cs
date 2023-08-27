@@ -153,7 +153,7 @@ public class PlayerAttacks : MonoBehaviour
             if (hitGO.CompareTag("Smashable"))
             {
                 Rigidbody rb = hitGO.GetComponent<Rigidbody>();
-                rb.AddExplosionForce(10f, rb.transform.position, 10f, 3.0f, ForceMode.Impulse);
+                rb.AddExplosionForce(10f, transform.position, 10f, 3.0f, ForceMode.Impulse);
 
                 hitGO.GetComponent<Smashable>().Smash();
             }
