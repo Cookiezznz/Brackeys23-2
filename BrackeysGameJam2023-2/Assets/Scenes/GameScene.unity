@@ -103309,6 +103309,11 @@ PrefabInstance:
       objectReference: {fileID: 7488324968328559589}
     - target: {fileID: 458903946442456901, guid: ab2b2c016e2ae1a4fa015ae678f4dc13,
         type: 3}
+      propertyPath: playerRage
+      value: 
+      objectReference: {fileID: 7488324968328559591}
+    - target: {fileID: 458903946442456901, guid: ab2b2c016e2ae1a4fa015ae678f4dc13,
+        type: 3}
       propertyPath: slamRadius
       value: 3
       objectReference: {fileID: 0}
@@ -103414,9 +103419,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2765378293723143498, guid: ab2b2c016e2ae1a4fa015ae678f4dc13,
         type: 3}
+      propertyPath: attacks
+      value: 
+      objectReference: {fileID: 7488324968328559590}
+    - target: {fileID: 2765378293723143498, guid: ab2b2c016e2ae1a4fa015ae678f4dc13,
+        type: 3}
       propertyPath: controller
       value: 
       objectReference: {fileID: 2142216925}
+    - target: {fileID: 2765378293723143498, guid: ab2b2c016e2ae1a4fa015ae678f4dc13,
+        type: 3}
+      propertyPath: playerAttack
+      value: 
+      objectReference: {fileID: 7488324968328559590}
     - target: {fileID: 2765378293723143498, guid: ab2b2c016e2ae1a4fa015ae678f4dc13,
         type: 3}
       propertyPath: movementSpeed
@@ -103507,6 +103522,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3e1fa9b7c87b138449730f4a1c3d2691, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7488324968328559590 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 458903946442456901, guid: ab2b2c016e2ae1a4fa015ae678f4dc13,
+    type: 3}
+  m_PrefabInstance: {fileID: 7488324968328559588}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2142216924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84fef6c3953821648a76df35bab4cf02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7488324968328559591 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4549993049719727492, guid: ab2b2c016e2ae1a4fa015ae678f4dc13,
+    type: 3}
+  m_PrefabInstance: {fileID: 7488324968328559588}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2142216924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3fe139d68fdcdf43b54bcc1c86bee28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8216614066652969700
