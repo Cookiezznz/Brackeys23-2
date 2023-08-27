@@ -29,7 +29,6 @@ public class RoomManager : MonoBehaviour
         //Add preset rooms to roomsList
         for (int roomNumber = 0; roomNumber < presetRooms.Count; roomNumber++)
         {
-
             Room presetRoom = presetRooms[roomNumber];
             //Save previous room
             if(previousRoom)
@@ -42,13 +41,13 @@ public class RoomManager : MonoBehaviour
         }
 
         //Generate up to roomsToGenerate number of rooms
-        for (int roomNumber = roomsList.Count; roomNumber < roomsToGenerate; roomNumber++)
+        for (int roomNumber = roomsList.Count + 1; roomNumber < roomsToGenerate; roomNumber++)
         {
             //Create new room
             Room newRoom = Instantiate(roomPrefab, buildingTransform).GetComponent<Room>();
+
             //Save previous room
-            if (previousRoom)
-                newRoom.previousRoom = previousRoom;
+            newRoom.previousRoom = previousRoom;
             //Update previous room
             previousRoom = newRoom;
 
@@ -61,6 +60,7 @@ public class RoomManager : MonoBehaviour
 
             newRoom.PopulateRoom(roofNumber - roomNumber);
         }
+        //Call room generation complete 2 seconds after 
         Invoke("RoomsGenerated", 2);
     }
 
