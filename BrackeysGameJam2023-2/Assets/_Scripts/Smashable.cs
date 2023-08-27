@@ -9,9 +9,12 @@ public class Smashable : MonoBehaviour
 
     public static event Action<float> OnSmash;
 
+    public bool smash;
+
     public void Smash()
     {
-        StartCoroutine(AnimationHalt());
+        smash = true;
+        Debug.Log(smash);
     }
 
     /*
@@ -25,11 +28,19 @@ public class Smashable : MonoBehaviour
     }
     */
 
-    private IEnumerator AnimationHalt()
+    private void OnCollisionEnter(Collision collision)
     {
-        yield return new WaitForSeconds(2f);
-        OnSmash.Invoke(rageOnSmash);
-        Destroy(gameObject);
-        yield return null;
+        if (smash)
+        {
+            OnSmash.Invoke(rageOnSmash);
+            Destroy(gameObject);
+        }
     }
+
+    //private IEnumerator AnimationHalt()
+    //{
+    //    yield return new WaitForSeconds(0.5f);
+
+    //    yield return null;
+    //}
 }
