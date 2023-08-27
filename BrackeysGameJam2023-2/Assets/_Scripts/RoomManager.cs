@@ -4,10 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class RoomManager : MonoBehaviour
+public class RoomManager : Singleton<RoomManager>
 {
     public Transform buildingTransform;
     public GameObject roomPrefab;
+    public GameObject finalRoomPrefab;
     public List<Room> roomsList;
     public List<Room> presetRooms;
     public float roomHeight;
@@ -16,6 +17,8 @@ public class RoomManager : MonoBehaviour
     private float roofHeight;
 
     public static event Action OnRoomsGenerated;
+
+    public Room finalRoom;
 
     private void Start()
     {
@@ -40,6 +43,7 @@ public class RoomManager : MonoBehaviour
             presetRoom.PopulateRoom(roofNumber - roomNumber);
         }
 
+        float roomYPosition = 0;
         //Generate up to roomsToGenerate number of rooms
         for (int roomNumber = roomsList.Count + 1; roomNumber < roomsToGenerate; roomNumber++)
         {
@@ -52,14 +56,24 @@ public class RoomManager : MonoBehaviour
             previousRoom = newRoom;
 
             //Calculate & Set the height of the room
-            float yHeight = roofHeight - roomHeight * roomsList.Count;
-            newRoom.transform.position = new Vector3(0, yHeight, 0);
+            roomYPosition = roofHeight - roomHeight * roomsList.Count;
+            newRoom.transform.position = new Vector3(0, roomYPosition, 0);
 
             //Save reference
             roomsList.Add(newRoom);
 
             newRoom.PopulateRoom(roofNumber - roomNumber);
         }
+        //Generate Final Room
+        finalRoom = Instantiate(finalRoomPrefab, buildingTransform).GetComponent<Room>();
+        finalRoom.previousRoom = previousRoom;
+        previousRoom = finalRoom;
+        roomsList.Add(finalRoom);
+        //Calculate & Set the height of the room
+        roomYPosition = roofHeight - roomHeight * roomsList.Count;
+        
+        finalRoom.transform.position = new Vector3(0, roomYPosition, 0);
+
         //Call room generation complete 2 seconds after 
         Invoke("RoomsGenerated", 2);
     }
