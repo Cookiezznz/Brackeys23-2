@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4e57193ec3d24c743b2ac34189ed9d6f
+guid: ebf3430248c29ea429de78c98c9aeb5e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -147,18 +147,62 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: angrysheet_idle_0
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 6
+        width: 852
+        height: 796
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 923021107a88ca348a9f539b80a85536
+      internalID: 208669874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: angrysheet_idle_1
+      rect:
+        serializedVersion: 2
+        x: 1084
+        y: 5
+        width: 852
+        height: 796
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b12eea366d951594e9389417ab4151f2
+      internalID: -2039241387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 829a3983b983c1f45b83cbe232bd5fc6
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      angrysheet_idle_0: 208669874
+      angrysheet_idle_1: -2039241387
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
