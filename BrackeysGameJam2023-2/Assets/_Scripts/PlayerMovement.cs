@@ -61,11 +61,11 @@ public class PlayerMovement : MonoBehaviour
         transform.Translate(translatePosition * Time.deltaTime);
         if (moveDirection.x < 0)
         {
-            player.transform.localScale = new Vector3(1f, 1f, 1f);
+            player.transform.localScale = new Vector3(-1f, 1f, 1f);
         }
         else
         {
-            player.transform.localScale = new Vector3(-1f, 1f, 1f);
+            player.transform.localScale = new Vector3(1f, 1f, 1f);
         }
 
         animator.SetBool("isRunning", true);

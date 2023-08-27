@@ -51,6 +51,7 @@ MonoBehaviour:
   hostilePosition: {fileID: 6021923818275836855}
   playerPosition: {fileID: 764616153579937858, guid: ab2b2c016e2ae1a4fa015ae678f4dc13,
     type: 3}
+  animator: {fileID: 7104625843943690078}
   room: {fileID: 0}
   arrestRadius: 3
   playerSlamExplosionForce: 5000
@@ -203,7 +204,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5ad5b5f60536a9344a42c6deaa44ce2b, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -223,7 +224,7 @@ Animator:
   m_GameObject: {fileID: 7027867116946032645}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ab8932ce9ce93b34dbe6486b57b8a23e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 3098ab398a061b54fb9fc9bcef0e3883, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
