@@ -2392,6 +2392,11 @@ PrefabInstance:
       propertyPath: dialogue.Array.data[0].clip
       value: 
       objectReference: {fileID: 8300000, guid: 9958d95881532de4480b8d3d9591529c, type: 3}
+    - target: {fileID: 2849904549416316264, guid: 792969756d0701a48a2917ae8fc7878b,
+        type: 3}
+      propertyPath: music.Array.data[0].volumePercent
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3850225283944689370, guid: 792969756d0701a48a2917ae8fc7878b,
         type: 3}
       propertyPath: m_RootOrder

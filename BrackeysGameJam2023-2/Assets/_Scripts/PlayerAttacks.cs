@@ -1,11 +1,12 @@
 using System;
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
-
 using UnityEngine.UI;
 
 public class PlayerAttacks : MonoBehaviour
 {
-    private float attackHoldDuration;
+    public float attackHoldDuration; // Changed to public
 
     [Tooltip("If attackHoldDuration reaches maxAttackHoldDuration then on release, the player will slam the floor and enter the next floor.")]
     public float maxAttackHoldDuration;
@@ -21,12 +22,14 @@ public class PlayerAttacks : MonoBehaviour
     public Image attackIndicatorFill;
 
     public PlayerController playerController;
+    public PlayerMovement playerMovement;
+    public PlayerRage playerRage;
 
     public Vector3 attackDirection;
     public float maxAttackDistance;
+
     [Tooltip("No Hold = Min Curve, Max Hold = Max Curve")]
     public AnimationCurve holdAttackDistanceCurve;
-    
 
     private void OnEnable()
     {
@@ -58,6 +61,11 @@ public class PlayerAttacks : MonoBehaviour
             {
                 attackHoldDuration = maxAttackHoldDuration;
                 attackFullyCharged = true;
+                if (playerRage.currentRage == playerRage.rageMax)
+                {
+                    StartCoroutine(SlamAnimation(2f));
+                    Debug.Log("stopMovement = true");
+                }
             }
 
             //0 - 1 Value of attack power
@@ -110,7 +118,7 @@ public class PlayerAttacks : MonoBehaviour
         }
         else
         {
-            //TODO Implement Standard Attack
+            //Done Hopefully: Animations next
             Smash();
         }
         //Clear hold duration
@@ -120,9 +128,8 @@ public class PlayerAttacks : MonoBehaviour
     //Attack for progressing levels
     private void Slam()
     {
-
         RaycastHit[] hits = Physics.SphereCastAll(transform.position, slamRadius, Vector3.down, 2);
-        foreach(RaycastHit hit in hits)
+        foreach (RaycastHit hit in hits)
         {
             if (hit.collider.gameObject.CompareTag("Floor"))
             {
@@ -140,30 +147,19 @@ public class PlayerAttacks : MonoBehaviour
     //Standard Attack Implementation: Breaks Smashables
     private void Smash()
     {
-        float calculatedAttackDistance = maxAttackDistance * holdAttackDistanceCurve.Evaluate(attackHoldDuration / maxAttackHoldDuration); 
+        float calculatedAttackDistance = maxAttackDistance * holdAttackDistanceCurve.Evaluate(attackHoldDuration / maxAttackHoldDuration);
         RaycastHit[] hits = Physics.BoxCastAll(transform.position, Vector3.one, attackDirection, Quaternion.identity, calculatedAttackDistance, LayerMask.GetMask("Smashable"));
         foreach (RaycastHit hit in hits)
         {
             GameObject hitGO = hit.collider.gameObject;
             if (hitGO.CompareTag("Smashable"))
             {
+                Rigidbody rb = hitGO.GetComponent<Rigidbody>();
+                rb.AddExplosionForce(10f, rb.transform.position, 10f, 3.0f, ForceMode.Impulse);
+
                 hitGO.GetComponent<Smashable>().Smash();
             }
         }
-
-        /*
-        RaycastHit hit;
-        if (Physics.BoxCast(transform.position, Vector3.forward, direction.moveDirection, out hit, transform.rotation, 1.0f, smashableLayer))
-        {
-            GameObject smashableObject = hit.collider.gameObject;
-            if (smashableObject.CompareTag("Smashable"))
-            {
-                Debug.Log("Smashable object detected: " + smashableObject.name);
-                smashableObject.SetActive(false);
-                playerController.rage.AddRage(10f);
-            }
-        }
-        */
     }
 
     private void UpdateAttackDirection(Vector2 dir)
@@ -172,6 +168,13 @@ public class PlayerAttacks : MonoBehaviour
         {
             attackDirection = new Vector3(dir.x, 0, dir.y);
         }
-       
+    }
+
+    private IEnumerator SlamAnimation(float duration)
+    {
+        playerMovement.canMove = false;
+        yield return new WaitForSeconds(duration);
+        playerMovement.canMove = true;
+        yield return null;
     }
 }

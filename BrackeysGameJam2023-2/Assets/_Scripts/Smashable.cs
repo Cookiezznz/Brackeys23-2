@@ -9,10 +9,12 @@ public class Smashable : MonoBehaviour
 
     public static event Action<float> OnSmash;
 
+    public bool smash;
+
     public void Smash()
     {
-        OnSmash.Invoke(rageOnSmash);
-        Destroy(gameObject);
+        smash = true;
+        Debug.Log(smash);
     }
 
     /*
@@ -25,4 +27,20 @@ public class Smashable : MonoBehaviour
         }
     }
     */
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (smash && collision.transform.CompareTag("FloorCube"))
+        {
+            OnSmash.Invoke(rageOnSmash);
+            Destroy(gameObject);
+        }
+    }
+
+    //private IEnumerator AnimationHalt()
+    //{
+    //    yield return new WaitForSeconds(0.5f);
+
+    //    yield return null;
+    //}
 }
