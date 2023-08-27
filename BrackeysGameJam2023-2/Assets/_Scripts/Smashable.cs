@@ -13,11 +13,13 @@ public class Smashable : MonoBehaviour
     public float despawnTime;
     public AnimationCurve despawnCurve;
 
+    public float costValue;
+
     public void Smash()
     {
         OnSmash.Invoke(rageOnSmash);
         StartCoroutine(Despawn());
-
+        GameStateManager.Instance.UpdateGameState(1, 0, costValue, 0);
     }
 
     IEnumerator Despawn()

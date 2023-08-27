@@ -8,23 +8,23 @@ public class UIManager : MonoBehaviour
 {
     public GameObject menu;
     public GameObject gameOverScreen;
-    public TextMeshProUGUI gameOverWinLossText;
-    public TextMeshProUGUI gameOverScore;
+    public TextMeshProUGUI gameOverCost;
+    public TextMeshProUGUI gameOverSmashed;
+    public TextMeshProUGUI gameOverTimeToTerm;
 
     public GameObject arrestBanner;
     
     private void OnEnable()
     {
-        if(GameStateManager.Instance != null)
-            GameStateManager.Instance.OnGameOver += OnGameOver;
+   
+        GameStateManager.OnGameOver += OnGameOver;
 
         PlayerArrest.onArrest += ShowArrestBanner;
     }
     
     private void OnDisable()
     {
-        if(GameStateManager.Instance != null)
-            GameStateManager.Instance.OnGameOver -= OnGameOver;
+        GameStateManager.OnGameOver -= OnGameOver;
 
         PlayerArrest.onArrest -= ShowArrestBanner;
 
@@ -33,15 +33,16 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameStateManager.Instance.OnGameOver += OnGameOver;
+        GameStateManager.OnGameOver += OnGameOver;
     }
     
     void OnGameOver()
     {
         menu.SetActive(true);
         gameOverScreen.SetActive(true);
-        gameOverWinLossText.text = GameStateManager.Instance.GetGameState().isVictorious ? "Victory" : "Defeat";
-        gameOverScore.text = GameStateManager.Instance.GetGameState().score.ToString("00.00");
+        gameOverCost.text = $"${GameStateManager.Instance.GetGameState().costOfDamageCaused.ToString("00.00")}";
+        gameOverSmashed.text = GameStateManager.Instance.GetGameState().objectsSmashed.ToString("0");
+        gameOverTimeToTerm.text = GameStateManager.Instance.GetGameState().playTime.ToString("0");
     }
 
     void ShowArrestBanner()

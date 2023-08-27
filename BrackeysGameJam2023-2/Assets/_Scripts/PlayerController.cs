@@ -12,9 +12,6 @@ public class PlayerController : MonoBehaviour
     public PlayerAttacks attacks;
     public PlayerArrest arrest;
 
-
-
-
     public void PlayerUpdate()
     {
         if (arrest.isArrested) return;

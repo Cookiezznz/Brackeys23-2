@@ -25,7 +25,6 @@ public class PlayerAttacks : MonoBehaviour
 
     public PlayerController playerController;
     public PlayerMovement playerMovement;
-    public PlayerRage playerRage;
 
     public Vector3 attackDirection;
     public float maxAttackDistance;
@@ -38,6 +37,7 @@ public class PlayerAttacks : MonoBehaviour
         InputManager.onPrimaryDown += StartAttack;
         InputManager.onPrimaryUp += EndAttack;
         InputManager.onMove += UpdateAttackDirection;
+
     }
 
     private void OnDisable()

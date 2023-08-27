@@ -1046,7 +1046,7 @@ MonoBehaviour:
   hostileHolder: {fileID: 3377918299797535176}
   hostilePrefabs:
   - {fileID: 6021923818275836855, guid: 5277914813322f24ca9a19880fb807ee, type: 3}
-  numberOfHostilesToSpawn: 4
+  numberOfHostilesToSpawn: 2
   hostiles: []
 --- !u!65 &3333383974391278615
 BoxCollider:

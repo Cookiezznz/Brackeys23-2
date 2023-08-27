@@ -6,8 +6,9 @@ using UnityEngine;
 [Serializable]
 public struct GameState
 {
-    public string name;
-    public float score;
+    public float costOfDamageCaused;
+    public int objectsSmashed;
+    public int floorsTraversed;
     public bool isVictorious;
     public float playTime;
 }
@@ -16,9 +17,10 @@ public class GameStateManager : Singleton<GameStateManager>
     [field: SerializeField]
     public bool IsPaused { get; private set; }
 
+    [SerializeField]
     private GameState gameState;
     
-    public event Action OnGameOver;
+    public static event Action OnGameOver;
     // Start is called before the first frame update
 
     [Header("Update Components")]
@@ -73,24 +75,29 @@ public class GameStateManager : Singleton<GameStateManager>
     {
         if (isVictory)
         {
-            UpdateGameState(null, 0, 0, true); 
+            UpdateGameState( 0, 0, 0, Time.timeSinceLevelLoad, true); 
+        }
+        else
+        {
+            UpdateGameState( 0, 0, 0, Time.timeSinceLevelLoad);
         }
 
-        
-        PauseGame();
         OnGameOver?.Invoke();
     }
 
-    public void UpdateGameState(string name=null, float scoreToAdd=0, float playTimeToAdd=0, bool isVictorious=false)
+    public void UpdateGameState(int smashedObjectsToAdd, int floorsTraversed, float damageCostToAdd=0, float playTimeToAdd=0, bool isVictorious=false)
     {
-        if (name != null)
+        if (smashedObjectsToAdd > 0)
         {
-            gameState.name = name;
+            gameState.objectsSmashed += smashedObjectsToAdd;
         }
-
-        if (scoreToAdd > 0)
+        if (floorsTraversed > 0)
         {
-            gameState.score += scoreToAdd;
+            gameState.floorsTraversed += floorsTraversed;
+        }
+        if (damageCostToAdd > 0)
+        {
+            gameState.costOfDamageCaused += damageCostToAdd;
         }
 
         if (playTimeToAdd > 0)

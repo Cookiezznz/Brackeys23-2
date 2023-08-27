@@ -148,23 +148,23 @@ public class Room : MonoBehaviour
 
     private void Update()
     {
-        if(isActive)
-        {
-            if(frontWallFacade)
-                if(frontWallFacade.activeSelf) ActivateRoom(true);
-        }
+
         
     }
     public void ActivateRoom(bool forceActivate = false)
     {
         if(!forceActivate)
             if (isActive) return;
-        floor.EnableFloorRenderers();
+
         isActive = true;
+        //Add a floor traversed
+        floor.EnableFloorRenderers();
+        GameStateManager.Instance.UpdateGameState(0,1,0,0);
         if(frontWallFacade)
             StartCoroutine(RevealRoom());
         if(previousRoom)
             previousRoom.DeactivateRoom();
+
 
 
     }
