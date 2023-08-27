@@ -16,6 +16,7 @@ public class PlayerAttacks : MonoBehaviour
     public bool attackActive;
     public bool attackFullyCharged;
     public float slamRadius;
+    public float attackDurationNormalized;
 
     public GameObject attackIndicator;
     public float holdDurationToShowIndicator;
@@ -69,7 +70,7 @@ public class PlayerAttacks : MonoBehaviour
             }
 
             //0 - 1 Value of attack power
-            float attackDurationNormalized = attackHoldDuration / maxAttackHoldDuration;
+            attackDurationNormalized = attackHoldDuration / maxAttackHoldDuration;
 
             //Update attack indicator
             float attackIndicatorFillAmount = (attackHoldDuration - holdDurationToShowIndicator) / (maxAttackHoldDuration - holdDurationToShowIndicator);
