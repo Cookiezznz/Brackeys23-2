@@ -11,8 +11,7 @@ public class Smashable : MonoBehaviour
 
     public void Smash()
     {
-        OnSmash.Invoke(rageOnSmash);
-        Destroy(gameObject);
+        StartCoroutine(AnimationHalt());
     }
 
     /*
@@ -25,4 +24,12 @@ public class Smashable : MonoBehaviour
         }
     }
     */
+
+    private IEnumerator AnimationHalt()
+    {
+        yield return new WaitForSeconds(2f);
+        OnSmash.Invoke(rageOnSmash);
+        Destroy(gameObject);
+        yield return null;
+    }
 }

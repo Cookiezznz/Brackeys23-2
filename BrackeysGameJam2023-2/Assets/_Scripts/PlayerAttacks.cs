@@ -63,7 +63,7 @@ public class PlayerAttacks : MonoBehaviour
                 attackFullyCharged = true;
                 if (playerRage.currentRage == playerRage.rageMax)
                 {
-                    StartCoroutine(SmashAnimation(2f));
+                    StartCoroutine(SlamAnimation(2f));
                     Debug.Log("stopMovement = true");
                 }
             }
@@ -154,6 +154,9 @@ public class PlayerAttacks : MonoBehaviour
             GameObject hitGO = hit.collider.gameObject;
             if (hitGO.CompareTag("Smashable"))
             {
+                Rigidbody rb = hitGO.GetComponent<Rigidbody>();
+                rb.AddExplosionForce(20f, rb.transform.position, 5.0f, 3.0f, ForceMode.Impulse);
+
                 hitGO.GetComponent<Smashable>().Smash();
             }
         }
@@ -167,7 +170,7 @@ public class PlayerAttacks : MonoBehaviour
         }
     }
 
-    private IEnumerator SmashAnimation(float duration)
+    private IEnumerator SlamAnimation(float duration)
     {
         playerMovement.canMove = false;
         yield return new WaitForSeconds(duration);
