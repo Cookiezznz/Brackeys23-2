@@ -19,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
     public Vector3 moveDirection;
     public Vector2 xConstraints;
     public Vector2 zConstraints;
+    public Animator animator;
+    public GameObject player;
 
     public float speedReducedPerNearbyHostile;
     public AnimationCurve attackHoldSlowOverDuration;
@@ -46,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
         {
             //Reset accelleration if player has stopped moving
             if (moveAccelleration > 0) moveAccelleration = 0;
+            animator.SetBool("isRunning", false);
             return;
         }
 
@@ -56,7 +59,17 @@ public class PlayerMovement : MonoBehaviour
         Vector3 translatePosition = speed * moveDirection;
         currentSpeed = translatePosition;
         transform.Translate(translatePosition * Time.deltaTime);
-        
+        if (moveDirection.x < 0)
+        {
+            player.transform.localScale = new Vector3(1f, 1f, 1f);
+        }
+        else
+        {
+            player.transform.localScale = new Vector3(-1f, 1f, 1f);
+        }
+
+        animator.SetBool("isRunning", true);
+
         //Increment moveAccelleration if needed
         if (moveAccelleration < moveAccellerationDuration)
             moveAccelleration = Mathf.Min(moveAccelleration += Time.deltaTime, moveAccellerationDuration);

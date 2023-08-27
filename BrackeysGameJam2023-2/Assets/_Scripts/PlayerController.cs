@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Components")]
     public PlayerMovement movement;
+
     public PlayerRage rage;
     public PlayerAttacks attacks;
     public PlayerArrest arrest;
