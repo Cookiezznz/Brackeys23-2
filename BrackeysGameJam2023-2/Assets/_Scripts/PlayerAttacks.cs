@@ -2,12 +2,11 @@ using System;
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
-
 using UnityEngine.UI;
 
 public class PlayerAttacks : MonoBehaviour
 {
-    private float attackHoldDuration;
+    public float attackHoldDuration; // Changed to public
 
     [Tooltip("If attackHoldDuration reaches maxAttackHoldDuration then on release, the player will slam the floor and enter the next floor.")]
     public float maxAttackHoldDuration;
@@ -24,6 +23,7 @@ public class PlayerAttacks : MonoBehaviour
 
     public PlayerController playerController;
     public PlayerMovement playerMovement;
+    public PlayerRage playerRage;
 
     public Vector3 attackDirection;
     public float maxAttackDistance;
@@ -61,9 +61,11 @@ public class PlayerAttacks : MonoBehaviour
             {
                 attackHoldDuration = maxAttackHoldDuration;
                 attackFullyCharged = true;
-
-                StartCoroutine(SmashAnimation(2f));
-                Debug.Log("stopMovement = true");
+                if (playerRage.currentRage == playerRage.rageMax)
+                {
+                    StartCoroutine(SlamAnimation(2f));
+                    Debug.Log("stopMovement = true");
+                }
             }
 
             //0 - 1 Value of attack power
@@ -152,6 +154,9 @@ public class PlayerAttacks : MonoBehaviour
             GameObject hitGO = hit.collider.gameObject;
             if (hitGO.CompareTag("Smashable"))
             {
+                Rigidbody rb = hitGO.GetComponent<Rigidbody>();
+                rb.AddExplosionForce(10f, rb.transform.position, 10f, 3.0f, ForceMode.Impulse);
+
                 hitGO.GetComponent<Smashable>().Smash();
             }
         }
@@ -165,7 +170,7 @@ public class PlayerAttacks : MonoBehaviour
         }
     }
 
-    private IEnumerator SmashAnimation(float duration)
+    private IEnumerator SlamAnimation(float duration)
     {
         playerMovement.canMove = false;
         yield return new WaitForSeconds(duration);

@@ -15309,7 +15309,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.19611613, y: 0.0000049221167, z: -0.0000009844233, w: 0.9805807}
+  m_LocalRotation: {x: 0.19611613, y: 0.0000048754673, z: -0.0000009750935, w: 0.9805807}
   m_LocalPosition: {x: -0.0001193285, y: 155, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -70111,7 +70111,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1448960798}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.19611613, y: 0.0000049221167, z: -0.0000009844233, w: 0.9805807}
+  m_LocalRotation: {x: 0.19611613, y: 0.0000048754673, z: -0.0000009750935, w: 0.9805807}
   m_LocalPosition: {x: -0.0001193285, y: 155, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -94000,6 +94000,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmashableRoof (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 4672979266175252224, guid: f098f8f3c092fd946a1812a91970c6fd,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6468587104219860662, guid: f098f8f3c092fd946a1812a91970c6fd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -103410,6 +103415,11 @@ PrefabInstance:
       objectReference: {fileID: 7488324968328559589}
     - target: {fileID: 458903946442456901, guid: ab2b2c016e2ae1a4fa015ae678f4dc13,
         type: 3}
+      propertyPath: playerRage
+      value: 
+      objectReference: {fileID: 7488324968328559591}
+    - target: {fileID: 458903946442456901, guid: ab2b2c016e2ae1a4fa015ae678f4dc13,
+        type: 3}
       propertyPath: slamRadius
       value: 3
       objectReference: {fileID: 0}
@@ -103515,9 +103525,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2765378293723143498, guid: ab2b2c016e2ae1a4fa015ae678f4dc13,
         type: 3}
+      propertyPath: attacks
+      value: 
+      objectReference: {fileID: 7488324968328559590}
+    - target: {fileID: 2765378293723143498, guid: ab2b2c016e2ae1a4fa015ae678f4dc13,
+        type: 3}
       propertyPath: controller
       value: 
       objectReference: {fileID: 2142216925}
+    - target: {fileID: 2765378293723143498, guid: ab2b2c016e2ae1a4fa015ae678f4dc13,
+        type: 3}
+      propertyPath: playerAttack
+      value: 
+      objectReference: {fileID: 7488324968328559590}
     - target: {fileID: 2765378293723143498, guid: ab2b2c016e2ae1a4fa015ae678f4dc13,
         type: 3}
       propertyPath: movementSpeed
@@ -103608,6 +103628,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3e1fa9b7c87b138449730f4a1c3d2691, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7488324968328559590 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 458903946442456901, guid: ab2b2c016e2ae1a4fa015ae678f4dc13,
+    type: 3}
+  m_PrefabInstance: {fileID: 7488324968328559588}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2142216924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84fef6c3953821648a76df35bab4cf02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7488324968328559591 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4549993049719727492, guid: ab2b2c016e2ae1a4fa015ae678f4dc13,
+    type: 3}
+  m_PrefabInstance: {fileID: 7488324968328559588}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2142216924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3fe139d68fdcdf43b54bcc1c86bee28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8216614066652969700
