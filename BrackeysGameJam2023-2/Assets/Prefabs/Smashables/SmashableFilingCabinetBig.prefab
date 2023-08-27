@@ -162,6 +162,11 @@ PrefabInstance:
       propertyPath: costValue
       value: 499.9
       objectReference: {fileID: 0}
+    - target: {fileID: 6773286347847708116, guid: a28d3cfc874b27841816ff52373e14da,
+        type: 3}
+      propertyPath: soundOnSmash
+      value: smashfillingcabinet
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3478315845273187948, guid: a28d3cfc874b27841816ff52373e14da, type: 3}
     - {fileID: 9065883087105322360, guid: a28d3cfc874b27841816ff52373e14da, type: 3}

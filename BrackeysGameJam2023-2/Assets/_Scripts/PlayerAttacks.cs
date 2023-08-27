@@ -25,6 +25,7 @@ public class PlayerAttacks : MonoBehaviour
 
     public PlayerController playerController;
     public PlayerMovement playerMovement;
+    public Animator animator;
 
     public Vector3 attackDirection;
     public float maxAttackDistance;
@@ -37,7 +38,6 @@ public class PlayerAttacks : MonoBehaviour
         InputManager.onPrimaryDown += StartAttack;
         InputManager.onPrimaryUp += EndAttack;
         InputManager.onMove += UpdateAttackDirection;
-
     }
 
     private void OnDisable()
@@ -104,7 +104,6 @@ public class PlayerAttacks : MonoBehaviour
             //Only slam if fully enraged
             if (playerController.rage.isEnraged)
             {
-                
                 Slam();
             }
             else //Else Smash
@@ -138,6 +137,9 @@ public class PlayerAttacks : MonoBehaviour
                 hit.collider.gameObject.GetComponent<FloorCube>().Break();
             }
         }
+        AudioManager.Instance.PlaySound("collapse");
+        animator.SetTrigger("slam");
+
         StartCoroutine(SlamAnimation(slamMovementLockDuration));
         playerController.rage.ClearRage();
     }
@@ -152,6 +154,7 @@ public class PlayerAttacks : MonoBehaviour
             GameObject hitGO = hit.collider.gameObject;
             if (hitGO.CompareTag("Smashable"))
             {
+                animator.SetTrigger("kick");
                 Rigidbody rb = hitGO.GetComponent<Rigidbody>();
                 rb.AddExplosionForce(10f, transform.position, 10f, 3.0f, ForceMode.Impulse);
 

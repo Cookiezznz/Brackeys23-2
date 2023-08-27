@@ -152,12 +152,12 @@ TextureImporter:
       name: angrysheet_run_0
       rect:
         serializedVersion: 2
-        x: 99
-        y: 1007
-        width: 830
-        height: 831
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        x: 0
+        y: 1000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -174,11 +174,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1000
-        y: 1010
-        width: 996
-        height: 824
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        y: 1000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -194,12 +194,12 @@ TextureImporter:
       name: angrysheet_run_2
       rect:
         serializedVersion: 2
-        x: 2024
-        y: 1018
-        width: 911
-        height: 770
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        x: 2000
+        y: 1000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -215,12 +215,12 @@ TextureImporter:
       name: angrysheet_run_3
       rect:
         serializedVersion: 2
-        x: 108
-        y: 1
-        width: 717
-        height: 823
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        x: 0
+        y: 0
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -236,12 +236,12 @@ TextureImporter:
       name: angrysheet_run_4
       rect:
         serializedVersion: 2
-        x: 1003
-        y: 12
-        width: 902
-        height: 806
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        x: 1000
+        y: 0
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -257,12 +257,12 @@ TextureImporter:
       name: angrysheet_run_5
       rect:
         serializedVersion: 2
-        x: 2038
-        y: 10
-        width: 897
-        height: 779
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        x: 2000
+        y: 0
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

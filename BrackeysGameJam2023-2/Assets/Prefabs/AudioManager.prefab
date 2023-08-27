@@ -55,10 +55,13 @@ MonoBehaviour:
   startingMusic: TitleMusic
   music:
   - name: TitleMusic
-    clip: {fileID: 8300000, guid: 904a7121de8756f4592e9fae82e62c62, type: 3}
+    clip: {fileID: 8300000, guid: ec0057b64ae796549a809908719a4ba5, type: 3}
     volumePercent: 1
   - name: GameMusic_NoRage
-    clip: {fileID: 8300000, guid: 995f6be205ff8734bad296791368ee5f, type: 3}
+    clip: {fileID: 8300000, guid: e4ec3d12608eeed4f95874c80a330028, type: 3}
+    volumePercent: 1
+  - name: GameMusic_Rage
+    clip: {fileID: 8300000, guid: 3ef3acd658b71744793921050cf111f0, type: 3}
     volumePercent: 1
   sfxMute: 0
   sfxVolume: 1
@@ -66,6 +69,36 @@ MonoBehaviour:
   sounds:
   - name: UiBlip
     clip: {fileID: 8300000, guid: d89bdd79a236dbd45b3951c270fe341c, type: 3}
+    volumePercent: 1
+  - name: Arrested
+    clip: {fileID: 8300000, guid: 7b8e72439ab555048883284a2f322f3d, type: 3}
+    volumePercent: 1
+  - name: collapse
+    clip: {fileID: 8300000, guid: 30151caf84d14374585cef102d610585, type: 3}
+    volumePercent: 1
+  - name: smashbookcase
+    clip: {fileID: 8300000, guid: 81218968cb30a9345a60dafb5be7181b, type: 3}
+    volumePercent: 1
+  - name: smashcomputer
+    clip: {fileID: 8300000, guid: 27b6f57fecaad7042b2d9e429c6f3a20, type: 3}
+    volumePercent: 1
+  - name: smashdesk
+    clip: {fileID: 8300000, guid: 3e24c2df3fe33fa4e9c1ef258914ae21, type: 3}
+    volumePercent: 1
+  - name: smashfillingcabinet
+    clip: {fileID: 8300000, guid: c781ab16eea56e84599b3fc915d762e6, type: 3}
+    volumePercent: 1
+  - name: smashplant1
+    clip: {fileID: 8300000, guid: 17fb1aa870920d445a45fbb79a63920e, type: 3}
+    volumePercent: 1
+  - name: smashplant2
+    clip: {fileID: 8300000, guid: 93474030c04b76146ab169d20b2f1ca7, type: 3}
+    volumePercent: 1
+  - name: smashvent
+    clip: {fileID: 8300000, guid: 5afcd2d1f71ac2749a671e78bb06743f, type: 3}
+    volumePercent: 1
+  - name: smashwater
+    clip: {fileID: 8300000, guid: 0c92028897200c14682862277b893e01, type: 3}
     volumePercent: 1
   dialogueMute: 0
   dialogueVolume: 1

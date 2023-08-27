@@ -15,11 +15,14 @@ public class Smashable : MonoBehaviour
 
     public float costValue;
 
+    public string soundOnSmash;
+
     public void Smash()
     {
         OnSmash.Invoke(rageOnSmash);
         StartCoroutine(Despawn());
         GameStateManager.Instance.UpdateGameState(1, 0, costValue, 0);
+        AudioManager.Instance.PlaySound(soundOnSmash);
     }
 
     IEnumerator Despawn()
