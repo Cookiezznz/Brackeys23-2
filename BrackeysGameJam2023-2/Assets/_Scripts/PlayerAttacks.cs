@@ -138,6 +138,7 @@ public class PlayerAttacks : MonoBehaviour
                 hit.collider.gameObject.GetComponent<FloorCube>().Break();
             }
         }
+        AudioManager.Instance.PlaySound("collapse");
         StartCoroutine(SlamAnimation(slamMovementLockDuration));
         playerController.rage.ClearRage();
     }
