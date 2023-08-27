@@ -106343,6 +106343,11 @@ PrefabInstance:
       objectReference: {fileID: 1741522537}
     - target: {fileID: 458903946442456901, guid: ab2b2c016e2ae1a4fa015ae678f4dc13,
         type: 3}
+      propertyPath: slamMovementLockDuration
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 458903946442456901, guid: ab2b2c016e2ae1a4fa015ae678f4dc13,
+        type: 3}
       propertyPath: holdDurationToShowIndicator
       value: 0.3
       objectReference: {fileID: 0}
