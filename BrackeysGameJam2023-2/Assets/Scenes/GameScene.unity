@@ -7097,6 +7097,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 150040485}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &150772422 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4276631183174741170, guid: ab2b2c016e2ae1a4fa015ae678f4dc13,
+    type: 3}
+  m_PrefabInstance: {fileID: 7488324968328559588}
+  m_PrefabAsset: {fileID: 0}
 --- !u!212 &150772424 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 5837362535754517697, guid: ab2b2c016e2ae1a4fa015ae678f4dc13,
@@ -106439,6 +106445,11 @@ PrefabInstance:
       objectReference: {fileID: 2142216925}
     - target: {fileID: 2765378293723143498, guid: ab2b2c016e2ae1a4fa015ae678f4dc13,
         type: 3}
+      propertyPath: childSprite
+      value: 
+      objectReference: {fileID: 150772422}
+    - target: {fileID: 2765378293723143498, guid: ab2b2c016e2ae1a4fa015ae678f4dc13,
+        type: 3}
       propertyPath: playerAttack
       value: 
       objectReference: {fileID: 7488324968328559590}
@@ -106637,6 +106648,16 @@ PrefabInstance:
       propertyPath: rageMeter
       value: 
       objectReference: {fileID: 1897652155}
+    - target: {fileID: 4724019641960810595, guid: ab2b2c016e2ae1a4fa015ae678f4dc13,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5837362535754517697, guid: ab2b2c016e2ae1a4fa015ae678f4dc13,
+        type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6966912622584829010, guid: ab2b2c016e2ae1a4fa015ae678f4dc13,
         type: 3}
       propertyPath: m_LocalPosition.x

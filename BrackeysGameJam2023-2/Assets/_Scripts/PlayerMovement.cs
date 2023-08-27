@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 xConstraints;
     public Vector2 zConstraints;
     public Animator animator;
-    public SpriteRenderer spriteRenderer;
+    public GameObject player;
 
     public float speedReducedPerNearbyHostile;
     public AnimationCurve attackHoldSlowOverDuration;
@@ -61,14 +61,14 @@ public class PlayerMovement : MonoBehaviour
         transform.Translate(translatePosition * Time.deltaTime);
         if (moveDirection.x < 0)
         {
-            spriteRenderer.flipX = true;
+            player.transform.localScale = new Vector3(1f, 1f, 1f);
         }
         else
         {
-            spriteRenderer.flipX = false;
+            player.transform.localScale = new Vector3(-1f, 1f, 1f);
         }
 
-        animator.SetBool("isRunning", false);
+        animator.SetBool("isRunning", true);
 
         //Increment moveAccelleration if needed
         if (moveAccelleration < moveAccellerationDuration)
