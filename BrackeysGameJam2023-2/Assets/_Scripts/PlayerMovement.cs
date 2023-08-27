@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         float attackSlowMultiplier = attackHoldSlowOverDuration.Evaluate(playerAttack.attackDurationNormalized);
-        float hostileSlowMultiplier = MathF.Max(1 - (speedReducedPerNearbyHostile * controller.nearbyHostiles.Count), 0.2f);
+        float hostileSlowMultiplier = MathF.Max(1 - (speedReducedPerNearbyHostile * controller.arrest.nearbyHostiles.Count), 0.2f);
         float speed = (movementSpeed * movementCurve.Evaluate(moveAccelleration / moveAccellerationDuration));
         speed *= attackSlowMultiplier * hostileSlowMultiplier;
         Vector3 translatePosition = speed * moveDirection;

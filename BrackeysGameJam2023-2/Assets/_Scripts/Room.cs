@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.AI.Navigation;
 using UnityEngine;
 
 public class Room : MonoBehaviour
@@ -14,6 +15,7 @@ public class Room : MonoBehaviour
     public bool isActive;
     public EnableFloor floor;
     public Room previousRoom;
+    public NavMeshSurface navSurface;
 
     [Header("Smashables")]
     public Transform smashablesHolder;
@@ -41,7 +43,9 @@ public class Room : MonoBehaviour
         //Dont populate Preset Rooms
         if (isPresetRoom) return;
 
-        if(smashablePrefabs.Length > 0)
+        navSurface.BuildNavMesh();
+
+        if (smashablePrefabs.Length > 0)
         {
             PopulateSmashables();
         }
@@ -58,9 +62,12 @@ public class Room : MonoBehaviour
         //Spawn Hostiles
         for (int hostileNum = 0; hostileNum < numberOfHostilesToSpawn; hostileNum++)
         {
+            //Get a hostile prefab
             int randomHostile = Random.Range(0, hostilePrefabs.Length);
+            //Spawn the hostile on HostileHolder, and save the hostiles Controller reference
             HostileController newHostile = Instantiate(hostilePrefabs[randomHostile], hostileHolder).GetComponent<HostileController>();
-            newHostile.transform.localPosition = new Vector3(Random.Range(xConstraints.x, xConstraints.y), -7, Random.Range(zConstraints.x, zConstraints.y));
+            
+            newHostile.transform.localPosition = new Vector3(Random.Range(xConstraints.x, xConstraints.y), 0, Random.Range(zConstraints.x, zConstraints.y));
             newHostile.room = this;
             hostiles.Add(newHostile);
             HostileManager.Instance.hostiles.Add(newHostile);
@@ -141,23 +148,23 @@ public class Room : MonoBehaviour
 
     private void Update()
     {
-        if(isActive)
-        {
-            if(frontWallFacade)
-                if(frontWallFacade.activeSelf) ActivateRoom(true);
-        }
+
         
     }
     public void ActivateRoom(bool forceActivate = false)
     {
         if(!forceActivate)
             if (isActive) return;
-        floor.EnableFloorRenderers();
+
         isActive = true;
+        //Add a floor traversed
+        floor.EnableFloorRenderers();
+        GameStateManager.Instance.UpdateGameState(0,1,0,0);
         if(frontWallFacade)
             StartCoroutine(RevealRoom());
         if(previousRoom)
             previousRoom.DeactivateRoom();
+
 
 
     }

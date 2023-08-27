@@ -177,6 +177,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmashableDesk2
       objectReference: {fileID: 0}
+    - target: {fileID: 6773286347847708116, guid: a28d3cfc874b27841816ff52373e14da,
+        type: 3}
+      propertyPath: costValue
+      value: 2509
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3478315845273187948, guid: a28d3cfc874b27841816ff52373e14da, type: 3}
     - {fileID: 9065883087105322360, guid: a28d3cfc874b27841816ff52373e14da, type: 3}

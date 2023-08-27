@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Smashable : MonoBehaviour
@@ -9,38 +10,32 @@ public class Smashable : MonoBehaviour
 
     public static event Action<float> OnSmash;
 
-    public bool smash;
+    public float despawnTime;
+    public AnimationCurve despawnCurve;
+
+    public float costValue;
 
     public void Smash()
     {
-        smash = true;
-        Debug.Log(smash);
+        OnSmash.Invoke(rageOnSmash);
+        StartCoroutine(Despawn());
+        GameStateManager.Instance.UpdateGameState(1, 0, costValue, 0);
     }
 
-    /*
-    //TODO Replace collision with smashing of objects
-    public void OnCollisionEnter(Collision collision)
+    IEnumerator Despawn()
     {
-        if (collision.gameObject.CompareTag("Player"))
+        float t = despawnTime;
+        Vector3 localScale = transform.localScale;
+        while (t > 0)
         {
-            Smash();
+            t -= Time.deltaTime;
+            float multiplier = despawnCurve.Evaluate(t);
+            Vector3 scale = localScale * multiplier;
+            transform.localScale = scale;
+            yield return null;
         }
-    }
-    */
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (smash && collision.transform.CompareTag("FloorCube"))
-        {
-            OnSmash.Invoke(rageOnSmash);
-            Destroy(gameObject);
-        }
+        Destroy(gameObject);
+        yield return null;
     }
 
-    //private IEnumerator AnimationHalt()
-    //{
-    //    yield return new WaitForSeconds(0.5f);
-
-    //    yield return null;
-    //}
 }

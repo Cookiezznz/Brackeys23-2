@@ -16,8 +16,9 @@ public class InputManager : Singleton<InputManager>
     public static event Action<Vector2> onLook;
     public static event Action<Vector2> onMove;
 
-    void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         if(playerInput == null) playerInput = GetComponent<PlayerInput>();
     }
     // Start is called before the first frame update

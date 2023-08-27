@@ -25,7 +25,6 @@ public class PlayerAttacks : MonoBehaviour
 
     public PlayerController playerController;
     public PlayerMovement playerMovement;
-    public PlayerRage playerRage;
 
     public Vector3 attackDirection;
     public float maxAttackDistance;
@@ -38,6 +37,7 @@ public class PlayerAttacks : MonoBehaviour
         InputManager.onPrimaryDown += StartAttack;
         InputManager.onPrimaryUp += EndAttack;
         InputManager.onMove += UpdateAttackDirection;
+
     }
 
     private void OnDisable()
@@ -153,7 +153,7 @@ public class PlayerAttacks : MonoBehaviour
             if (hitGO.CompareTag("Smashable"))
             {
                 Rigidbody rb = hitGO.GetComponent<Rigidbody>();
-                rb.AddExplosionForce(10f, rb.transform.position, 10f, 3.0f, ForceMode.Impulse);
+                rb.AddExplosionForce(10f, transform.position, 10f, 3.0f, ForceMode.Impulse);
 
                 hitGO.GetComponent<Smashable>().Smash();
             }

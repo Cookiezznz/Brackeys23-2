@@ -41,7 +41,6 @@ public class PlayerRage : MonoBehaviour
             currentRage = rageMax;
             Enrage();
         }
-
     }
 
     void Enrage()

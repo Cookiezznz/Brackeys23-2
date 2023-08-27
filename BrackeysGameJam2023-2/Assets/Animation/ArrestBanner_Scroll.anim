@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RageBar_Scroll
+  m_Name: ArrestBanner_Scroll
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -23,18 +23,18 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -150
-        inSlope: 360.40515
-        outSlope: 360.40515
+        value: -1260
+        inSlope: 2327.7761
+        outSlope: 2327.7761
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 1
+        outWeight: 0.99997205
       - serializedVersion: 3
         time: 1
-        value: 210.63544
-        inSlope: 360.63455
-        outSlope: 360.63455
+        value: 1067.7108
+        inSlope: 2330.468
+        outSlope: 2330.468
         tangentMode: 0
         weightedMode: 0
         inWeight: 1
@@ -42,7 +42,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_AnchoredPosition.y
+    attribute: m_AnchoredPosition.x
     path: 
     classID: 224
     script: {fileID: 0}
@@ -57,7 +57,7 @@ AnimationClip:
     genericBindings:
     - serializedVersion: 2
       path: 0
-      attribute: 538195251
+      attribute: 1460864421
       script: {fileID: 0}
       typeID: 224
       customType: 28
@@ -92,18 +92,18 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -150
-        inSlope: 360.40515
-        outSlope: 360.40515
+        value: -1260
+        inSlope: 2327.7761
+        outSlope: 2327.7761
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 1
+        outWeight: 0.99997205
       - serializedVersion: 3
         time: 1
-        value: 210.63544
-        inSlope: 360.63455
-        outSlope: 360.63455
+        value: 1067.7108
+        inSlope: 2330.468
+        outSlope: 2330.468
         tangentMode: 0
         weightedMode: 0
         inWeight: 1
@@ -111,7 +111,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_AnchoredPosition.y
+    attribute: m_AnchoredPosition.x
     path: 
     classID: 224
     script: {fileID: 0}
