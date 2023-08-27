@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI gameOverTimeToTerm;
 
     public GameObject arrestBanner;
+    public GameObject winBanner;
     
     private void OnEnable()
     {
@@ -20,13 +21,16 @@ public class UIManager : MonoBehaviour
         GameStateManager.OnGameOver += OnGameOver;
 
         PlayerArrest.onArrest += ShowArrestBanner;
+        PlayerController.onWin += ShowWinBanner;
+
     }
-    
+
     private void OnDisable()
     {
         GameStateManager.OnGameOver -= OnGameOver;
 
         PlayerArrest.onArrest -= ShowArrestBanner;
+        PlayerController.onWin -= ShowWinBanner;
 
     }
 
@@ -49,5 +53,9 @@ public class UIManager : MonoBehaviour
     {
         arrestBanner.SetActive(true);
     }
-    
+    void ShowWinBanner()
+    {
+        winBanner.SetActive(true);
+    }
+
 }
