@@ -20,10 +20,4 @@ public class PlayerController : MonoBehaviour
         attacks.AttackUpdate();
         arrest.UpdateArrest();
     }
-
-
-
-
-
-
 }

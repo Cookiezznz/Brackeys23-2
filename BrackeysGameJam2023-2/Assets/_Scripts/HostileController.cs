@@ -44,16 +44,15 @@ public class HostileController : MonoBehaviour
         //if the current room is not active... dont update
         if (!room.isActive) return;
 
-        Vector3 normalizedCrossProduct = Vector3.Cross(playerPosition.transform.position, hostilePosition.transform.position).normalized;
-        Debug.Log(playerPosition.transform.position.x - hostilePosition.transform.position.x);
-        if (normalizedCrossProduct == Vector3.zero)
-        {
-            hostilePosition.transform.localScale = new Vector3(1f, 1f, 1f);
-        }
-        else
+        if (hostilePosition.transform.position.x < player.gameObject.transform.position.x)
         {
             hostilePosition.transform.localScale = new Vector3(-1f, 1f, 1f);
         }
+        else
+        {
+            hostilePosition.transform.localScale = new Vector3(1f, 1f, 1f);
+        }
+
         //Move to player
         agent.SetDestination(player.transform.position);
         //Always face forwards
@@ -80,7 +79,7 @@ public class HostileController : MonoBehaviour
 
     public void Deactivate()
     {
-        animator.SetBool("isSplat", true);
+        animator.SetTrigger("splat");
         agent.enabled = false;
         player.arrest.RemoveNearbyEnemy(this);
 
