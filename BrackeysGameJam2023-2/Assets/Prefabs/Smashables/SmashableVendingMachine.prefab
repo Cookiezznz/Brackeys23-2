@@ -61,47 +61,47 @@ PrefabInstance:
     - target: {fileID: 3819401880493844388, guid: a28d3cfc874b27841816ff52373e14da,
         type: 3}
       propertyPath: m_Size.x
-      value: 0.5861187
+      value: 1.2863679
       objectReference: {fileID: 0}
     - target: {fileID: 3819401880493844388, guid: a28d3cfc874b27841816ff52373e14da,
         type: 3}
       propertyPath: m_Size.y
-      value: 2.5175653
+      value: 2.0565314
       objectReference: {fileID: 0}
     - target: {fileID: 3819401880493844388, guid: a28d3cfc874b27841816ff52373e14da,
         type: 3}
       propertyPath: m_Size.z
-      value: 0.54554206
+      value: 1.2979838
       objectReference: {fileID: 0}
     - target: {fileID: 3819401880493844388, guid: a28d3cfc874b27841816ff52373e14da,
         type: 3}
       propertyPath: m_Center.x
-      value: 0.004057646
+      value: 0.0018829107
       objectReference: {fileID: 0}
     - target: {fileID: 3819401880493844388, guid: a28d3cfc874b27841816ff52373e14da,
         type: 3}
       propertyPath: m_Center.y
-      value: 1.2375867
+      value: 1.0070698
       objectReference: {fileID: 0}
     - target: {fileID: 3819401880493844388, guid: a28d3cfc874b27841816ff52373e14da,
         type: 3}
       propertyPath: m_Center.z
-      value: 0.24345961
+      value: -0.041424334
       objectReference: {fileID: 0}
     - target: {fileID: 5459245603873210773, guid: a28d3cfc874b27841816ff52373e14da,
         type: 3}
       propertyPath: m_Name
-      value: SmashableWaterCooler 1
+      value: SmashableVendingMachine
       objectReference: {fileID: 0}
     - target: {fileID: 6773286347847708116, guid: a28d3cfc874b27841816ff52373e14da,
         type: 3}
       propertyPath: costValue
-      value: 759.6
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 6773286347847708116, guid: a28d3cfc874b27841816ff52373e14da,
         type: 3}
       propertyPath: soundOnSmash
-      value: smashwater
+      value: smashVent
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3478315845273187948, guid: a28d3cfc874b27841816ff52373e14da, type: 3}
