@@ -60,7 +60,7 @@ public class Room : MonoBehaviour
         {
             int randomHostile = Random.Range(0, hostilePrefabs.Length);
             HostileController newHostile = Instantiate(hostilePrefabs[randomHostile], hostileHolder).GetComponent<HostileController>();
-            newHostile.transform.localPosition = new Vector3(Random.Range(xConstraints.x, xConstraints.y), 0, Random.Range(zConstraints.x, zConstraints.y));
+            newHostile.transform.localPosition = new Vector3(Random.Range(xConstraints.x, xConstraints.y), -7, Random.Range(zConstraints.x, zConstraints.y));
             newHostile.room = this;
             hostiles.Add(newHostile);
             HostileManager.Instance.hostiles.Add(newHostile);
