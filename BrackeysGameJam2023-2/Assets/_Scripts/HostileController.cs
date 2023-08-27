@@ -10,9 +10,19 @@ public class HostileController : MonoBehaviour
 
 
     [Header("Components")]
+<<<<<<< Updated upstream
     NavMeshAgent agent;
     HostileManager hostileManager;
     Rigidbody rigidbody;
+=======
+    private NavMeshAgent agent;
+
+    private HostileManager hostileManager;
+    private Rigidbody rigidbody;
+    public GameObject hostilePosition;
+    public GameObject playerPosition;
+    public Animator animator;
+>>>>>>> Stashed changes
 
     [Header("Room")]
     public Room room;
@@ -65,6 +75,7 @@ public class HostileController : MonoBehaviour
 
     public void Deactivate()
     {
+        animator.SetBool("noFloorDetected", true);
         agent.enabled = false;
         player.RemoveNearbyEnemy(this);
         

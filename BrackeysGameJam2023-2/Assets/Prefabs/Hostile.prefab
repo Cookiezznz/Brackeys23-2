@@ -48,6 +48,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 045584433115611418f498eabe5de6ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
+=======
+  hostilePosition: {fileID: 6021923818275836855}
+  playerPosition: {fileID: 764616153579937858, guid: ab2b2c016e2ae1a4fa015ae678f4dc13,
+    type: 3}
+  animator: {fileID: 7104625843943690078}
+>>>>>>> Stashed changes
   room: {fileID: 0}
   arrestRadius: 3
   playerSlamExplosionForce: 5000

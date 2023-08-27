@@ -14,7 +14,6 @@ public class Smashable : MonoBehaviour
     public void Smash()
     {
         smash = true;
-        Debug.Log(smash);
     }
 
     /*
