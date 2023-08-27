@@ -24,13 +24,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6986852466076077701}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2849904549416316264
 MonoBehaviour:
@@ -51,11 +51,14 @@ MonoBehaviour:
   musicVolume: 1
   musicMix: {fileID: -1413795500009600871, guid: 40e2884f3344b2e46b7d709567c2fe48,
     type: 2}
-  playOnStart: 0
+  playOnStart: 1
   startingMusic: TitleMusic
   music:
   - name: TitleMusic
-    clip: {fileID: 8300000, guid: 8baa98057153db143b688b0ee0d02b3e, type: 3}
+    clip: {fileID: 8300000, guid: 904a7121de8756f4592e9fae82e62c62, type: 3}
+    volumePercent: 1
+  - name: GameMusic_NoRage
+    clip: {fileID: 8300000, guid: 995f6be205ff8734bad296791368ee5f, type: 3}
     volumePercent: 1
   sfxMute: 0
   sfxVolume: 1

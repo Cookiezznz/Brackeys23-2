@@ -8,24 +8,29 @@ public class HostileController : MonoBehaviour
     [Header("Player")]
     PlayerController player;
 
+
     [Header("Components")]
     NavMeshAgent agent;
     HostileManager hostileManager;
+    Rigidbody rigidbody;
 
     [Header("Room")]
     public Room room;
 
     [Header("Stats")]
-    public float effectRadius = 0.3f;
+    public float arrestRadius = 0.3f;
+    public float playerSlamExplosionForce;
+    public float playerSlamExplosionRadius;
+    public float explosionUpwardsModifier;
 
-    public bool attacking = false;
-    
+
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         player = FindObjectOfType<PlayerController>();
-        hostileManager = FindAnyObjectByType<HostileManager>();
+        hostileManager = FindObjectOfType<HostileManager>();
+        rigidbody = FindObjectOfType<Rigidbody>();
         
     }
 
@@ -47,7 +52,7 @@ public class HostileController : MonoBehaviour
     {
         float distance = Vector3.Distance(transform.position, player.transform.position);
 
-        if (distance < effectRadius)
+        if (distance < arrestRadius)
         {
             player.AddNearbyEnemy(this);
         }
@@ -56,6 +61,15 @@ public class HostileController : MonoBehaviour
             player.RemoveNearbyEnemy(this);
         }
 
+    }
+
+    public void Deactivate()
+    {
+        agent.enabled = false;
+        player.RemoveNearbyEnemy(this);
+        
+        //rigidbody.useGravity = false;
+        //rigidbody.AddExplosionForce(playerSlamExplosionForce, player.transform.position - 0.1f, playerSlamExplosionRadius, explosionUpwardsModifier, ForceMode.Impulse);
     }
 
 }
