@@ -165,6 +165,11 @@ public class Room : MonoBehaviour
         if(previousRoom)
             previousRoom.DeactivateRoom();
 
+        if (RoomManager.Instance.finalRoom == this)
+        {
+            PlayerController.Instance.Win();
+        }
+
 
 
     }
