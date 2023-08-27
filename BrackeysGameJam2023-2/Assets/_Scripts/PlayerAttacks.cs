@@ -16,6 +16,8 @@ public class PlayerAttacks : MonoBehaviour
     public bool attackActive;
     public bool attackFullyCharged;
     public float slamRadius;
+    public float attackDurationNormalized;
+    public float slamMovementLockDuration;
 
     public GameObject attackIndicator;
     public float holdDurationToShowIndicator;
@@ -61,15 +63,10 @@ public class PlayerAttacks : MonoBehaviour
             {
                 attackHoldDuration = maxAttackHoldDuration;
                 attackFullyCharged = true;
-                if (playerRage.currentRage == playerRage.rageMax)
-                {
-                    StartCoroutine(SlamAnimation(2f));
-                    Debug.Log("stopMovement = true");
-                }
             }
 
             //0 - 1 Value of attack power
-            float attackDurationNormalized = attackHoldDuration / maxAttackHoldDuration;
+            attackDurationNormalized = attackHoldDuration / maxAttackHoldDuration;
 
             //Update attack indicator
             float attackIndicatorFillAmount = (attackHoldDuration - holdDurationToShowIndicator) / (maxAttackHoldDuration - holdDurationToShowIndicator);
@@ -98,7 +95,6 @@ public class PlayerAttacks : MonoBehaviour
 
         //Log the last attack time for cooldown tracking.
         lastAttackTime = Time.time;
-
         //Hide Attack Indicator
         attackIndicator.SetActive(false);
 
@@ -108,7 +104,7 @@ public class PlayerAttacks : MonoBehaviour
             //Only slam if fully enraged
             if (playerController.rage.isEnraged)
             {
-                //TODO Implement Slam
+                
                 Slam();
             }
             else //Else Smash
@@ -123,6 +119,7 @@ public class PlayerAttacks : MonoBehaviour
         }
         //Clear hold duration
         attackHoldDuration = 0;
+        attackDurationNormalized = 0;
     }
 
     //Attack for progressing levels
@@ -141,6 +138,7 @@ public class PlayerAttacks : MonoBehaviour
                 hit.collider.gameObject.GetComponent<FloorCube>().Break();
             }
         }
+        StartCoroutine(SlamAnimation(slamMovementLockDuration));
         playerController.rage.ClearRage();
     }
 
