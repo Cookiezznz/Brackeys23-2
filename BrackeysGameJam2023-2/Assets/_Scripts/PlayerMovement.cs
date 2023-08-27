@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 zConstraints;
 
     public float speedReducedPerNearbyHostile;
-    public Vector3 rageInducedSlow;
+    public AnimationCurve attackHoldSlowOverDuration;
 
     public PlayerController controller;
     public PlayerAttacks playerAttack;
@@ -49,20 +49,14 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
-        if (playerAttack.attackHoldDuration > playerAttack.maxAttackHoldDuration / 2)
-        {
-            Debug.Log(currentSpeed);
-            Vector3 rageInducedSlow = movementSpeed * movementCurve.Evaluate(moveAccelleration / moveAccellerationDuration) * moveDirection * MathF.Max(1 * (playerAttack.attackHoldDuration / 2), 0.2f);
-            currentSpeed = rageInducedSlow;
-            Debug.Log("if" + currentSpeed);
-        }
-        else
-        {
-            Vector3 translatePosition = (movementSpeed * movementCurve.Evaluate(moveAccelleration / moveAccellerationDuration) * moveDirection) * MathF.Max(1 - (speedReducedPerNearbyHostile * controller.nearbyHostiles.Count), 0.2f);
-            currentSpeed = translatePosition;
-            transform.Translate(translatePosition * Time.deltaTime);
-            Debug.Log("else" + currentSpeed);
-        }
+        float attackSlowMultiplier = attackHoldSlowOverDuration.Evaluate(playerAttack.attackDurationNormalized);
+        float hostileSlowMultiplier = MathF.Max(1 - (speedReducedPerNearbyHostile * controller.nearbyHostiles.Count), 0.2f);
+        float speed = (movementSpeed * movementCurve.Evaluate(moveAccelleration / moveAccellerationDuration));
+        speed *= attackSlowMultiplier * hostileSlowMultiplier;
+        Vector3 translatePosition = speed * moveDirection;
+        currentSpeed = translatePosition;
+        transform.Translate(translatePosition * Time.deltaTime);
+        
         //Increment moveAccelleration if needed
         if (moveAccelleration < moveAccellerationDuration)
             moveAccelleration = Mathf.Min(moveAccelleration += Time.deltaTime, moveAccellerationDuration);
