@@ -16592,7 +16592,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.19611613, y: 0.0000048287834, z: -0.0000009657567, w: 0.9805807}
+  m_LocalRotation: {x: 0.19611613, y: 0.0000048754673, z: -0.0000009750935, w: 0.9805807}
   m_LocalPosition: {x: -0.0001193285, y: 155, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -49386,7 +49386,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 565, y: -500}
+  m_AnchoredPosition: {x: 778, y: -500}
   m_SizeDelta: {x: 900, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &939293141
@@ -49409,7 +49409,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Seconds To Termination: '
+  m_text: 'Seconds of rage: '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 945c33d9aa0de1d43acca03d145584f4, type: 2}
   m_sharedMaterial: {fileID: -1256936860731725039, guid: 945c33d9aa0de1d43acca03d145584f4,
@@ -75152,7 +75152,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1448960798}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.19611613, y: 0.0000048287834, z: -0.0000009657567, w: 0.9805807}
+  m_LocalRotation: {x: 0.19611613, y: 0.0000048754673, z: -0.0000009750935, w: 0.9805807}
   m_LocalPosition: {x: -0.0001193285, y: 155, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
