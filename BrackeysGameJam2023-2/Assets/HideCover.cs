@@ -8,7 +8,8 @@ public class HideCover : MonoBehaviour
     public float timeToHide;
     public Color imageColour;
     public Image image;
-    
+
+    public GameObject loadingGO;
     // Start is called before the first frame update
     void OnEnable()
     {
@@ -27,6 +28,7 @@ public class HideCover : MonoBehaviour
     // Update is called once per frame
     void StartHide()
     {
+        loadingGO.SetActive(false);
         StartCoroutine(Hide());
     }
 
