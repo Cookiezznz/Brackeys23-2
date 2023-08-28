@@ -16592,7 +16592,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.19611613, y: 0.0000048288066, z: -0.0000009657613, w: 0.9805807}
+  m_LocalRotation: {x: 0.19611613, y: 0.0000048287834, z: -0.0000009657567, w: 0.9805807}
   m_LocalPosition: {x: -0.0001193285, y: 155, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -20183,7 +20183,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000061035156, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &384818893
@@ -62536,6 +62536,40 @@ MonoBehaviour:
   roomHeight: 7
   roomsToGenerate: 20
   roofNumber: 20
+  enemyCountRamp:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1.0983577
+      inSlope: -1.6463753
+      outSlope: -1.6463753
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.07169166
+    - serializedVersion: 3
+      time: 0.9828219
+      value: 0.22531652
+      inSlope: -1.8490349
+      outSlope: -1.8490349
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.060839485
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -3.968944
+      outSlope: -3.968944
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.027334869
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  maxHostiles: 5
   finalRoom: {fileID: 0}
 --- !u!1001 &1217302928
 PrefabInstance:
@@ -75118,7 +75152,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1448960798}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.19611613, y: 0.0000048288066, z: -0.0000009657613, w: 0.9805807}
+  m_LocalRotation: {x: 0.19611613, y: 0.0000048287834, z: -0.0000009657567, w: 0.9805807}
   m_LocalPosition: {x: -0.0001193285, y: 155, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

@@ -29,14 +29,14 @@ public class Room : MonoBehaviour
     [Header("Hostiles")]
     public Transform hostileHolder;
     public GameObject[] hostilePrefabs;
-    public float numberOfHostilesToSpawn;
+    public int numberOfHostilesToSpawn;
     public List<HostileController> hostiles = new List<HostileController>();
 
     void Start()
     {
         if(activateOnStart) ActivateRoom();
     }
-    public void PopulateRoom(int roomNum)
+    public void PopulateRoom(int roomNum, AnimationCurve enemyCountRamp, int roofNum, int maxHostiles)
     {
         roomNumber.text = roomNum.ToString();
 
@@ -49,8 +49,9 @@ public class Room : MonoBehaviour
         {
             PopulateSmashables();
         }
-        
 
+        float hostileFloat = Mathf.Max(1, maxHostiles * enemyCountRamp.Evaluate((float)roomNum / (float)roofNum));
+        numberOfHostilesToSpawn = Mathf.FloorToInt(hostileFloat);
         if(hostilePrefabs.Length > 0)
         {
             PopulateHostiles();
