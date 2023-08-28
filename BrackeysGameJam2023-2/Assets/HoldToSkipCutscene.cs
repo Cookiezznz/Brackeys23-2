@@ -15,6 +15,7 @@ public class HoldToSkipCutscene : MonoBehaviour
     public Image progressSlider;
     public Image fadeCover;
     public Color fadeColour;
+    public GameObject loading;
     void OnEnable()
     {
         InputManager.onPrimaryDown += StartHold;
@@ -50,6 +51,7 @@ public class HoldToSkipCutscene : MonoBehaviour
 
     void SkipCutscene()
     {
+        loading.SetActive(true);
         SceneManager.Instance.LoadScene(SceneManager.Scenes.Game2);
     }
 

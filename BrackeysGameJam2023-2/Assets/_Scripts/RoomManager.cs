@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
+
 public class RoomManager : Singleton<RoomManager>
 {
     public Transform buildingTransform;
@@ -15,6 +16,8 @@ public class RoomManager : Singleton<RoomManager>
     public int roomsToGenerate = 50;
     public int roofNumber = 30;
     private float roofHeight;
+    public AnimationCurve enemyCountRamp;
+    public int maxHostiles;
 
     public static event Action OnRoomsGenerated;
 
@@ -40,7 +43,7 @@ public class RoomManager : Singleton<RoomManager>
             previousRoom = presetRoom;
             roomsList.Add(presetRoom);
 
-            presetRoom.PopulateRoom(roofNumber - roomNumber);
+            presetRoom.PopulateRoom(roofNumber - roomNumber, enemyCountRamp, roofNumber, maxHostiles);
         }
 
         float roomYPosition = 0;
@@ -62,7 +65,7 @@ public class RoomManager : Singleton<RoomManager>
             //Save reference
             roomsList.Add(newRoom);
 
-            newRoom.PopulateRoom(roofNumber - roomNumber);
+            newRoom.PopulateRoom(roofNumber - roomNumber, enemyCountRamp, roofNumber, maxHostiles);
         }
         //Generate Final Room
         finalRoom = Instantiate(finalRoomPrefab, buildingTransform).GetComponent<Room>();

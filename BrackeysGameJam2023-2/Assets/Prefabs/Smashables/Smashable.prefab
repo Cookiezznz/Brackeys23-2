@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rageOnSmash: 10
-  despawnTime: 2.5
+  despawnTime: 1.25
   despawnCurve:
     serializedVersion: 2
     m_Curve:
@@ -154,6 +154,10 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  costValue: 0
+  soundOnSmash: 
+  moneyPopupPrefab: {fileID: 7597243506340057985, guid: e06a01e4a51f10648bbd24df1d65f84c,
+    type: 3}
 --- !u!54 &591102017069088379
 Rigidbody:
   m_ObjectHideFlags: 0

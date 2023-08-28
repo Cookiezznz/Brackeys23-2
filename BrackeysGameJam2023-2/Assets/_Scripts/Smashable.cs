@@ -17,12 +17,27 @@ public class Smashable : MonoBehaviour
 
     public string soundOnSmash;
 
+    public GameObject moneyPopupPrefab;
+
+    public Transform hud;
+
+    private bool isSmashed;
+
+    private void Start()
+    {
+        hud = GameObject.Find("HUD").transform;
+    }
+
     public void Smash()
     {
+        if (isSmashed) return;
+        isSmashed = true;
         OnSmash.Invoke(rageOnSmash);
         StartCoroutine(Despawn());
         GameStateManager.Instance.UpdateGameState(1, 0, costValue, 0);
         AudioManager.Instance.PlaySound(soundOnSmash);
+        Popup moneyPopup = Instantiate(moneyPopupPrefab, hud).GetComponent<Popup>();
+        moneyPopup.InitPopup($"${costValue.ToString("00.00")}", transform.position);
     }
 
     IEnumerator Despawn()
@@ -32,7 +47,7 @@ public class Smashable : MonoBehaviour
         while (t > 0)
         {
             t -= Time.deltaTime;
-            float multiplier = despawnCurve.Evaluate(t);
+            float multiplier = despawnCurve.Evaluate(t / despawnTime);
             Vector3 scale = localScale * multiplier;
             transform.localScale = scale;
             yield return null;
