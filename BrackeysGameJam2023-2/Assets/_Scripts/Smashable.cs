@@ -21,6 +21,8 @@ public class Smashable : MonoBehaviour
 
     public Transform hud;
 
+    private bool isSmashed;
+
     private void Start()
     {
         hud = GameObject.Find("HUD").transform;
@@ -28,6 +30,8 @@ public class Smashable : MonoBehaviour
 
     public void Smash()
     {
+        if (isSmashed) return;
+        isSmashed = true;
         OnSmash.Invoke(rageOnSmash);
         StartCoroutine(Despawn());
         GameStateManager.Instance.UpdateGameState(1, 0, costValue, 0);

@@ -15,7 +15,10 @@ public class Popup : MonoBehaviour
     
     public void InitPopup(string text, Vector3 worldPos)
     {
-        rTransform.anchoredPosition = Camera.main.WorldToScreenPoint(worldPos); 
+        Vector2 pos = Camera.main.WorldToViewportPoint(worldPos);
+        pos.x *= 1920f;
+        pos.y *= 1080f;
+        rTransform.anchoredPosition = pos; 
         textMeshPro.text = text;
         StartCoroutine(PopupBehaviour());
     }
