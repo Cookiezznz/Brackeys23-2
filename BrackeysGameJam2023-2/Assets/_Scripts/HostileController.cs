@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.EventSystems;
@@ -25,6 +25,8 @@ public class HostileController : MonoBehaviour
     [Header("Stats")]
     public float arrestRadius = 0.3f;
 
+    public GameObject radiusVisualizer;
+
     public float playerSlamExplosionForce;
     public float playerSlamExplosionRadius;
     public float explosionUpwardsModifier;
@@ -36,6 +38,7 @@ public class HostileController : MonoBehaviour
         player = FindObjectOfType<PlayerController>();
         hostileManager = FindObjectOfType<HostileManager>();
         rigidbody = FindObjectOfType<Rigidbody>();
+        radiusVisualizer.transform.localScale = new Vector3(1,0.01f, 1) * arrestRadius;
     }
 
     // Update is called once per frame
@@ -46,18 +49,17 @@ public class HostileController : MonoBehaviour
 
         if (hostilePosition.transform.position.x < player.gameObject.transform.position.x)
         {
-            hostilePosition.transform.localScale = new Vector3(-1f, 1f, 1f);
+            hostilePosition.transform.localScale = new Vector3(1f, 1f, 1f);
         }
         else
         {
-            hostilePosition.transform.localScale = new Vector3(1f, 1f, 1f);
+            hostilePosition.transform.localScale = new Vector3(-1f, 1f, 1f);
         }
 
         //Move to player
         agent.SetDestination(player.transform.position);
-        //Always face forwards
-        transform.LookAt(Camera.main.transform.position, Vector3.up);
-
+        transform.LookAt(Camera.current.transform.position);
+        transform.up = Vector3.up;
         CheckPlayerDistance();
     }
 
