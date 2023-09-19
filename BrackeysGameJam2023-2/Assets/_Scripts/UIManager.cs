@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -14,6 +16,10 @@ public class UIManager : MonoBehaviour
 
     public GameObject arrestBanner;
     public GameObject winBanner;
+
+    public Button pauseButton;
+    public EventSystem eventSystem;
+    public GameObject gameOverMenuContinue;
     
     private void OnEnable()
     {
@@ -46,6 +52,8 @@ public class UIManager : MonoBehaviour
         gameOverCost.text = $"${GameStateManager.Instance.GetGameState().costOfDamageCaused.ToString("00.00")}";
         gameOverSmashed.text = GameStateManager.Instance.GetGameState().objectsSmashed.ToString("0");
         gameOverTimeToTerm.text = GameStateManager.Instance.GetGameState().playTime.ToString("0");
+        pauseButton.interactable = false;
+        eventSystem.SetSelectedGameObject(gameOverMenuContinue);
     }
 
     void ShowArrestBanner()
