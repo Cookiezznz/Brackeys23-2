@@ -29,10 +29,10 @@ public class Popup : MonoBehaviour
         Vector3 scale = rTransform.localScale;
         while (t > 0)
         {
-            t -= Time.deltaTime;
+            t -= Time.unscaledDeltaTime;
             rTransform.localScale = scale * sizeOverLifetime.Evaluate(t / despawnTime);
             Vector2 pos = rTransform.anchoredPosition;
-            pos += (speed * speedOverLifetime.Evaluate(t / despawnTime)) * Time.deltaTime * direction;
+            pos += (speed * speedOverLifetime.Evaluate(t / despawnTime)) * Time.unscaledDeltaTime * direction;
             rTransform.anchoredPosition = pos;
             yield return null;
         }

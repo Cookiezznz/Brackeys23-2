@@ -15,6 +15,7 @@ public class InputManager : Singleton<InputManager>
     public static event Action onPrimaryUp;
     public static event Action<Vector2> onLook;
     public static event Action<Vector2> onMove;
+    public static event Action onPause;
 
     protected override void Awake()
     {
@@ -61,7 +62,11 @@ public class InputManager : Singleton<InputManager>
         Vector2 pos = context.ReadValue<Vector2>();
         pos = new Vector2(Mathf.Clamp(pos.x / Screen.width, 0f, 1f), Mathf.Clamp(pos.y / Screen.height, 0f, 1f));
         pointerPositionScreenSpace = pos;
+    }
 
+    public void OnPause(InputAction.CallbackContext context)
+    {
+        onPause?.Invoke();
     }
 
 

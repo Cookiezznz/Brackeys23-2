@@ -31,14 +31,17 @@ public class HostileController : MonoBehaviour
     public float playerSlamExplosionRadius;
     public float explosionUpwardsModifier;
 
+    private Camera mainCam;
+
     // Start is called before the first frame update
     private void Start()
     {
+        mainCam = Camera.main;
         agent = GetComponent<NavMeshAgent>();
         player = FindObjectOfType<PlayerController>();
         hostileManager = FindObjectOfType<HostileManager>();
-        rigidbody = FindObjectOfType<Rigidbody>();
-        radiusVisualizer.transform.localScale = new Vector3(1,0.01f, 1) * arrestRadius;
+        rigidbody = GetComponent<Rigidbody>();
+        radiusVisualizer.transform.localScale = new Vector3(2 * arrestRadius, 0.01f,2 * arrestRadius);
     }
 
     // Update is called once per frame
@@ -58,7 +61,8 @@ public class HostileController : MonoBehaviour
 
         //Move to player
         agent.SetDestination(player.transform.position);
-        transform.LookAt(Camera.current.transform.position);
+        
+        transform.LookAt(mainCam.transform.position);
         transform.up = Vector3.up;
         CheckPlayerDistance();
     }
@@ -81,6 +85,7 @@ public class HostileController : MonoBehaviour
 
     public void Deactivate()
     {
+        radiusVisualizer.SetActive(false);
         animator.SetTrigger("splat");
         agent.enabled = false;
         player.arrest.RemoveNearbyEnemy(this);
@@ -92,5 +97,11 @@ public class HostileController : MonoBehaviour
 
         //rbody.useGravity = false;
         //rbody.AddExplosionForce(playerSlamExplosionForce, player.transform.position - 0.1f, playerSlamExplosionRadius, explosionUpwardsModifier, ForceMode.Impulse);
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, arrestRadius);
     }
 }

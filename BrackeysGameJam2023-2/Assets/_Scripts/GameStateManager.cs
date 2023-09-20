@@ -15,13 +15,15 @@ public struct GameState
 public class GameStateManager : Singleton<GameStateManager>
 {
     [field: SerializeField]
-    public bool IsPaused { get; private set; }
+    public bool isPaused { get; private set; }
 
     [SerializeField]
     private GameState gameState;
-    
+
+    public bool isGameOver;
     public static event Action OnGameOver;
-    // Start is called before the first frame update
+    public static event Action<bool> OnGamePaused;
+    
 
     [Header("Update Components")]
     public PlayerController playerController;
@@ -30,24 +32,27 @@ public class GameStateManager : Singleton<GameStateManager>
     void OnEnable()
     {
         RoomManager.OnRoomsGenerated += StartGame;
+        InputManager.onPause += PauseGame;
     }
 
     void OnDisable()
     {
         RoomManager.OnRoomsGenerated -= StartGame;
+        InputManager.onPause -= PauseGame;
     }
 
     public void StartGame()
     {
-        if(IsPaused || Time.timeScale == 0) ResumeGame();
+        if(isPaused || Time.timeScale == 0) ResumeGame();
         gameState = new GameState();
+        isGameOver = false;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (IsPaused) return;
+        if (isPaused) return;
         GameUpdate();
     }
 
@@ -61,18 +66,23 @@ public class GameStateManager : Singleton<GameStateManager>
 
     public void PauseGame()
     {
+        if(isPaused || isGameOver) return;
         Time.timeScale = 0;
-        IsPaused = true;
+        isPaused = true;
+        OnGamePaused?.Invoke(true);
     }
     
     public void ResumeGame()
     {
+        if (!isPaused || isGameOver) return;
         Time.timeScale = 1;
-        IsPaused = false;
+        isPaused = false;
+        OnGamePaused?.Invoke(false);
     }
 
     public void GameOver(bool isVictory)
     {
+        isGameOver = true;
         if (isVictory)
         {
             UpdateGameState( 0, 0, 0, Time.timeSinceLevelLoad, true); 
