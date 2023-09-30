@@ -147,6 +147,7 @@ public class PlayerAttacks : MonoBehaviour
     //Standard Attack Implementation: Breaks Smashables
     private void Smash()
     {
+        animator.SetTrigger("kick");
         float calculatedAttackDistance = maxAttackDistance * holdAttackDistanceCurve.Evaluate(attackHoldDuration / maxAttackHoldDuration);
         RaycastHit[] hits = Physics.BoxCastAll(transform.position, Vector3.one, attackDirection, Quaternion.identity, calculatedAttackDistance, LayerMask.GetMask("Smashable"));
         foreach (RaycastHit hit in hits)
@@ -154,7 +155,6 @@ public class PlayerAttacks : MonoBehaviour
             GameObject hitGO = hit.collider.gameObject;
             if (hitGO.CompareTag("Smashable"))
             {
-                animator.SetTrigger("kick");
                 Rigidbody rb = hitGO.GetComponent<Rigidbody>();
                 rb.AddExplosionForce(10f, transform.position, 10f, 3.0f, ForceMode.Impulse);
 
